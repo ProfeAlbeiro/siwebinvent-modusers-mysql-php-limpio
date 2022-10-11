@@ -1,0 +1,27 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+/* Contenedor */
+.contenedor{
+	max-width: 1280px;
+	width: 95%;
+	margin: auto;
+	display: flex;
+	flex-flow: column wrap;
+}
+nav, section, main, footer{
+	flex: 1;
+	display: flex;
+	flex-flow: column wrap;
+}
+h1, h4, a, img{
+	flex: 1;
+	padding-top: 10px;
+}
+img{
+	width: auto;
+	height: 100%;
+	height: auto;
+}

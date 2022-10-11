@@ -1,0 +1,234 @@
+/* Escritorio y Portatil */
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	background: #ddd;
+}
+/* Clases especiales */
+.borde{
+	border: 1px solid #ccc;
+}
+.color-negro{
+	background: #000;
+}
+.color-gris-oscuro{
+	background: #777;
+}
+.color-gris-claro{
+	background: #aaa;
+}
+.color-blanco{
+	background: #fff;
+}
+/* Contenedor */
+.contenedor{
+	width: 95%;
+	max-width: 1280px;
+	margin: auto;
+}
+/* Títulos */
+.titulo{
+	width: 100%;
+	height: 70px;
+	background: #6D8C7B;
+}
+/* Navegador */
+nav{
+	width: 100%;
+	height: 50px;
+}
+.logo{
+	width: 20%;
+	height: 100%;
+	background: #F2EDD5;
+	float: left;
+}
+.menu{
+	width: 65%;
+	height: 100%;
+	background: #A6BF9F;
+	float: left;
+}
+.ingreso{
+	width: 15%;
+	height: 100%;
+	background: #8C6D51;
+	float: left;
+}
+/* Encabezado y secciones*/
+header, section{
+	width: 100%;
+	height: 750px;
+}
+/* Encabezado */
+header{	}
+/* Portafolio */
+.portafolio{}
+.port-col-izq,
+.port-col-cnt,
+.port-col-der{
+	width: 33.33%;
+	height: 100%;
+	float: left;
+}
+/* Nosotros */
+.nosotros{}
+.nos-fila-arr,
+.nos-fila-cnt,
+.nos-fila-abj{
+	width: 100%;
+	height: 33.33%;
+}
+.nos-col-izq,
+.nos-col-der{
+	width: 40%;
+	height: 100%;
+	float: left;
+}
+.nos-col-cnt{
+	width: 20%;
+	height: 100%;
+	float: left;
+}
+/* Contáctenos */
+.contactenos{}
+.cont-col-izq,
+.cont-col-der{
+	width: 50%;
+	height: 100%;
+	float: left;
+}
+.cont-fila-arr{
+	width: 100%;
+	height: 65%;
+}
+.cont-fila-abj{
+	width: 100%;
+	height: 35%;
+}
+/* Pie de página */
+footer{
+	width: 100%;
+	height: 70px;
+	background: #455959;
+}
+
+/* Responsive Design: Diseño Adaptativo */
+
+/* Tabletas */
+@media (max-width: 992px) {
+	/* Contenedor */
+	.contenedor{
+		width: 100%;		
+	} 
+	/* Navegador */
+	nav{		
+		height: 150px;
+	}
+	.logo{
+		width: 100%;
+		height: 100px;
+	}
+	.menu, .ingreso{
+		height: 50px;
+	}
+	.menu{
+		width: 80%;
+	}
+	.ingreso{
+		width: 20%;
+	}
+	/* Portafolio */	
+	.port-col-izq{
+		width: 100%;
+		height: 50%;
+	}
+	.port-col-cnt,
+	.port-col-der{
+		width: 50%;
+		height: 50%;		
+	}
+	/* Nosotros */
+	.nos-fila-arr .nos-col-der,
+	.nos-fila-cnt .nos-col-izq,
+	.nos-fila-abj .nos-col-der{
+		display: none;	
+	}
+	.nos-col-izq,
+	.nos-col-der{
+		width: 70%;
+	}
+	.nos-col-cnt{
+		width: 30%;
+		background: #FFF;
+	}
+	/* Contáctenos */	
+	.cont-col-izq,
+	.cont-col-der{
+		width: 100%;
+		height: 50%;
+	}	
+	.cont-fila-arr{
+		width: 70%;
+		height: 100%;
+		float: left;
+	}
+	.cont-fila-abj{
+		width: 30%;
+		height: 100%;
+		float: left;
+	}
+}
+/* Celulares */
+@media (max-width: 768px) {	 
+	/* Navegador */	
+	.logo{		
+		height: 50px;
+	}
+	.menu, .ingreso{
+		height: 50px;
+		width: 100%;
+	}
+	/* Portafolio */	
+	.port-col-izq,
+	.port-col-cnt,
+	.port-col-der{
+		width: 100%;
+		height: 33.33%;
+	}
+	/* Nosotros */
+	.nosotros{
+		height: 1500px;
+	}	
+	.nos-col-izq,
+	.nos-col-cnt,
+	.nos-col-der{
+		width: 100%;
+		height: 50%;		
+	}
+	.nos-fila-arr .nos-col-cnt,
+	.nos-fila-abj .nos-col-cnt{
+		position: relative;
+		top: -50%;		
+	}
+	.nos-fila-arr .nos-col-izq,
+	.nos-fila-abj .nos-col-izq{
+		position: relative;
+		top: 50%;
+	}
+	/* Contáctenos */
+	.contactenos{
+		height: 1500px;
+	}		
+	.cont-fila-arr{
+		width: 100%;
+		height: 70%;
+	}
+	.cont-fila-abj{
+		width: 100%;
+		height: 30%;		
+	}
+}
