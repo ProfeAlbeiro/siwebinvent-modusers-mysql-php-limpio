@@ -297,11 +297,13 @@ textarea:required:valid{
 	flex: 0 0 100%;
 	width: 60%;
 }
-.form-login .form-subtitulo{
+.form-login .form-subtitulo,
+.form-register .form-subtitulo{
 	border-radius: 0;
 }
 .form-login .enlace-olvido,
-.form-login .enlace-registro{
+.form-login .enlace-registro,
+.form-register .enlace-registro{
 	flex: 1;
 	display: flex;
 	flex-flow: row wrap;
@@ -311,7 +313,8 @@ textarea:required:valid{
 	color: #FFF;
 	font-weight: bold;
 }
-.form-login .enlace-registro{		
+.form-login .enlace-registro,
+.form-register .enlace-registro{
 	border-bottom: 1px solid #EEE;
 	border-radius: 4px 4px 0 0;
 	background: #EEE;
