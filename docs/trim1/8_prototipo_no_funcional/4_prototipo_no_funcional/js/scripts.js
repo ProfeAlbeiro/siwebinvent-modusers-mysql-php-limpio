@@ -170,7 +170,7 @@ hacerClic.addEventListener('click', function (event){
 	} 
 	// Cancelar Envío Contacto
 	else if (id === "cancelar-contac") {
-		cancelarContac();	
+		cancelarContac();
 	} 
 	// Validar Login
 	else if (id === "submit-login") {
@@ -399,7 +399,7 @@ function cancelarContac(){
 	})
 	.then((value) => {
 		document.formContact.reset();
-		window.location = '?c=Landing&#contactenos';
+		window.location = '#contactenos';
 	});	
 }
 // Formulario de Registro: Validar Datos y Enviar
@@ -603,7 +603,7 @@ function cancelarRegister(){
 	})
 	.then((value) => {
 		document.formRegister.reset();
-		window.location = '?c=Login';		
+		window.location = 'login.html';		
 	});
 }
 // Formulario de Inicio de Sesión: Validar Datos y Enviar
@@ -702,7 +702,7 @@ function cancelarLogin(){
 	})
 	.then((value) => {
 		document.formLogin.reset();
-		window.location = '?c=Landing&#';
+		window.location = 'login.html';
 	});
 }
 // Formulario de Olvido Contraseña: Validar Datos y Enviar
@@ -761,7 +761,7 @@ function cancelarOlvido(){
 	})
 	.then((value) => {
 		document.formForgot.reset();
-		window.location = '?c=Login';
+		window.location = 'login.html';
 	});
 }
 // Generar PDF
@@ -835,9 +835,11 @@ $(document).ready(function() {
 /* -------------------------------------------------------------------------------- */
 /* CANVAS: GRÁFICOS --------------------------------------------------------------- */
 /* -------------------------------------------------------------------------------- */
+/*
 window.onload = ejemplo1();
-window.onload = ejemplo2();
-window.onload = ejemplo3();
+// window.onload = ejemplo2();
+// window.onload = ejemplo3();
+
 function ejemplo1(){
 	var chart1 = new CanvasJS.Chart("example1", {
 		exportEnabled: true,
@@ -875,6 +877,7 @@ function ejemplo1(){
 		e.chart1.render();
 	}
 }
+
 function ejemplo2(){
 	var chart2 = new CanvasJS.Chart("example2", {
 		exportEnabled: true,
@@ -1004,3 +1007,4 @@ function ejemplo3(){
 	updateChart(100);	
 	setInterval(function(){updateChart()}, updateInterval);
 }
+*/
