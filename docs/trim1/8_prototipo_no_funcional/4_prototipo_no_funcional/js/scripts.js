@@ -835,19 +835,19 @@ $(document).ready(function() {
 /* -------------------------------------------------------------------------------- */
 /* CANVAS: GRÁFICOS --------------------------------------------------------------- */
 /* -------------------------------------------------------------------------------- */
-/*
-window.onload = ejemplo1();
-// window.onload = ejemplo2();
-// window.onload = ejemplo3();
 
-function ejemplo1(){
+window.onload = ejemplo1();
+window.onload = ejemplo2();
+window.onload = ejemplo3();
+
+function ejemplo1() {
 	var chart1 = new CanvasJS.Chart("example1", {
 		exportEnabled: true,
 		animationEnabled: true,
-		title:{
+		title: {
 			text: "State Operating Funds"
 		},
-		legend:{
+		legend: {
 			cursor: "pointer",
 			itemclick: explodePie
 		},
@@ -857,19 +857,19 @@ function ejemplo1(){
 			toolTipContent: "{name}: <strong>{y}%</strong>",
 			indexLabel: "{name} - {y}%",
 			dataPoints: [
-			{ y: 26, name: "School Aid", exploded: true },
-			{ y: 20, name: "Medical Aid" },
-			{ y: 5, name: "Debt/Capital" },
-			{ y: 3, name: "Elected Officials" },
-			{ y: 7, name: "University" },
-			{ y: 17, name: "Executive" },
-			{ y: 22, name: "Other Local Assistance"}
+				{ y: 26, name: "School Aid", exploded: true },
+				{ y: 20, name: "Medical Aid" },
+				{ y: 5, name: "Debt/Capital" },
+				{ y: 3, name: "Elected Officials" },
+				{ y: 7, name: "University" },
+				{ y: 17, name: "Executive" },
+				{ y: 22, name: "Other Local Assistance" }
 			]
 		}]
 	});
 	chart1.render();
-	function explodePie (e) {
-		if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+	function explodePie(e) {
+		if (typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
 			e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
 		} else {
 			e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
@@ -878,37 +878,37 @@ function ejemplo1(){
 	}
 }
 
-function ejemplo2(){
+function ejemplo2() {
 	var chart2 = new CanvasJS.Chart("example2", {
 		exportEnabled: true,
 		animationEnabled: true,
 		theme: "light2", // "light1", "light2", "dark1", "dark2"
-		title:{
+		title: {
 			text: "Top Oil Reserves"
 		},
 		axisY: {
 			title: "Reserves(MMbbl)"
 		},
-		data: [{        
-			type: "column",  
-			showInLegend: true, 
+		data: [{
+			type: "column",
+			showInLegend: true,
 			legendMarkerColor: "grey",
 			legendText: "MMbbl = one million barrels",
-			dataPoints: [      
-			{ y: 300878, label: "Venezuela" },
-			{ y: 266455,  label: "Saudi" },
-			{ y: 169709,  label: "Canada" },
-			{ y: 158400,  label: "Iran" },
-			{ y: 142503,  label: "Iraq" },
-			{ y: 101500, label: "Kuwait" },
-			{ y: 97800,  label: "UAE" },
-			{ y: 80000,  label: "Russia" }
+			dataPoints: [
+				{ y: 300878, label: "Venezuela" },
+				{ y: 266455, label: "Saudi" },
+				{ y: 169709, label: "Canada" },
+				{ y: 158400, label: "Iran" },
+				{ y: 142503, label: "Iraq" },
+				{ y: 101500, label: "Kuwait" },
+				{ y: 97800, label: "UAE" },
+				{ y: 80000, label: "Russia" }
 			]
 		}]
 	});
 	chart2.render();
 }
-function ejemplo3(){
+function ejemplo3() {
 	var dataPoints1 = [];
 	var dataPoints2 = [];
 
@@ -921,20 +921,20 @@ function ejemplo3(){
 		axisX: {
 			title: "chart updates every 3 secs"
 		},
-		axisY:{
+		axisY: {
 			prefix: "$"
-		}, 
+		},
 		toolTip: {
 			shared: true
 		},
 		legend: {
-			cursor:"pointer",
+			cursor: "pointer",
 			verticalAlign: "top",
 			fontSize: 22,
 			fontColor: "dimGrey",
-			itemclick : toggleDataSeries
+			itemclick: toggleDataSeries
 		},
-		data: [{ 
+		data: [{
 			type: "line",
 			xValueType: "dateTime",
 			yValueFormatString: "$####.00",
@@ -942,19 +942,19 @@ function ejemplo3(){
 			showInLegend: true,
 			name: "Company A",
 			dataPoints: dataPoints1
-			},
-			{				
-				type: "line",
-				xValueType: "dateTime",
-				yValueFormatString: "$####.00",
-				showInLegend: true,
-				name: "Company B" ,
-				dataPoints: dataPoints2
+		},
+		{
+			type: "line",
+			xValueType: "dateTime",
+			yValueFormatString: "$####.00",
+			showInLegend: true,
+			name: "Company B",
+			dataPoints: dataPoints2
 		}]
 	});
 
 	function toggleDataSeries(e) {
-		if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
 			e.dataSeries.visible = false;
 		}
 		else {
@@ -965,7 +965,7 @@ function ejemplo3(){
 
 	var updateInterval = 3000;
 	// initial value
-	var yValue1 = 600; 
+	var yValue1 = 600;
 	var yValue2 = 605;
 
 	var time = new Date;
@@ -979,32 +979,31 @@ function ejemplo3(){
 		count = count || 1;
 		var deltaY1, deltaY2;
 		for (var i = 0; i < count; i++) {
-			time.setTime(time.getTime()+ updateInterval);
-			deltaY1 = .5 + Math.random() *(-.5-.5);
-			deltaY2 = .5 + Math.random() *(-.5-.5);
+			time.setTime(time.getTime() + updateInterval);
+			deltaY1 = .5 + Math.random() * (-.5 - .5);
+			deltaY2 = .5 + Math.random() * (-.5 - .5);
 
-		// adding random value and rounding it to two digits. 
-		yValue1 = Math.round((yValue1 + deltaY1)*100)/100;
-		yValue2 = Math.round((yValue2 + deltaY2)*100)/100;
+			// adding random value and rounding it to two digits. 
+			yValue1 = Math.round((yValue1 + deltaY1) * 100) / 100;
+			yValue2 = Math.round((yValue2 + deltaY2) * 100) / 100;
 
-		// pushing the new values
-		dataPoints1.push({
-			x: time.getTime(),
-			y: yValue1
-		});
-		dataPoints2.push({
-			x: time.getTime(),
-			y: yValue2
-		});
+			// pushing the new values
+			dataPoints1.push({
+				x: time.getTime(),
+				y: yValue1
+			});
+			dataPoints2.push({
+				x: time.getTime(),
+				y: yValue2
+			});
 		}
 
 		// updating legend text with  updated with y Value 
 		chart.options.data[0].legendText = " Company A  $" + yValue1;
-		chart.options.data[1].legendText = " Company B  $" + yValue2; 
+		chart.options.data[1].legendText = " Company B  $" + yValue2;
 		chart.render();
 	}
 	// generates first set of dataPoints 
-	updateChart(100);	
-	setInterval(function(){updateChart()}, updateInterval);
+	updateChart(100);
+	setInterval(function () { updateChart() }, updateInterval);
 }
-*/
