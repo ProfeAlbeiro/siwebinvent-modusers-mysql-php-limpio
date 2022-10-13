@@ -84,7 +84,7 @@ section.row{
 aside{	
 	height: 100%;
 	transition: all 200ms linear !important;
-	border-right: 1px solid #dee2e6 !important;
+	border-right: 1px solid #dee2e6 !important;	
 }
 aside .config{
 	height: 18%;
