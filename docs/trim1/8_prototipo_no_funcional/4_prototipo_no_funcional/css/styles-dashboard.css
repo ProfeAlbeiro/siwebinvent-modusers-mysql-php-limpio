@@ -117,9 +117,14 @@ footer p{
 		z-index: 0;
 		height: 72%;
 		padding: 100px;
+	}
+	footer.row{
+		width: 100%;
+		z-index: 1!important;
+		position: absolute!important;		
+		bottom: 0px!important;
 	}	
 	footer .pie-izq{
 		display: none!important;
-		z-index: 10;
-	}
+	}	
 }
