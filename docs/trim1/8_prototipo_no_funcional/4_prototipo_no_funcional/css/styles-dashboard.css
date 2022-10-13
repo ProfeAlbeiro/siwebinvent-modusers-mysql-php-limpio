@@ -87,8 +87,7 @@ main iframe{
 /* ------------------------------------------------------------------------------------- */
 /* FOOTER: PIE DE PÁGINA --------------------------------------------------------------- */
 /* ------------------------------------------------------------------------------------- */
-footer{
-	width: 100%;
+footer{	
 	height: 8vh;	
 }
 footer p{
@@ -102,12 +101,24 @@ footer p{
 
 @media (max-width: 991px) {
 	nav {
-		height: 100px;
+		/* height: 100px; */
 	}
-	nav .logo {
+	nav .logo.row {
+		height: 70px;
+	}
+	nav .menu.row {
 		height: 50px;
-	}
+	}		
 	section.row{
-		padding-top: 100px;
+		padding-top: 120px;		
+	}
+	section main.col-12{
+		position: absolute;
+		z-index: 100;
+		height: 78.5%;
+		padding: 100px;
+	}
+	footer .pie-izq{
+		display: none!important;
 	}
 }
