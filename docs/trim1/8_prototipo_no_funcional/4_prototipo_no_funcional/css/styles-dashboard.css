@@ -120,5 +120,6 @@ footer p{
 	}	
 	footer .pie-izq{
 		display: none!important;
+		z-index: 10;
 	}
 }
