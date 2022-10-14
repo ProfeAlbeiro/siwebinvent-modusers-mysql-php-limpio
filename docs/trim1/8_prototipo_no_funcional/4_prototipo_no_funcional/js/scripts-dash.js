@@ -11,5 +11,7 @@ hacerClicDash.addEventListener('click', function (event) {
 // Ocultar Panel Lateral
 function btnMenuLateral() {
     document.getElementById("panel-lateral").classList.toggle('activar-panel');
+    document.getElementById("config").classList.toggle('activar-panel');
+    document.getElementById("modulos").classList.toggle('activar-panel');
     document.getElementById("area_principal").classList.toggle('ampliar-principal');
 }

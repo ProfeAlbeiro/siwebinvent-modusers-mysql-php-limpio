@@ -28,11 +28,12 @@
 	cursor: pointer;
 }
 /* Panel Lateral */
-.activar-panel {
+.activar-panel {	
 	flex: none !important;
 	max-width: 0 !important;
 	transition: all 200ms linear !important;
 	border: 0 !important;
+	visibility: hidden;
 }
 .ampliar-principal {
 	flex: 0 0 100% !important;
@@ -141,6 +142,9 @@ footer p{
 	}		
 	section.row{
 		padding-top: 120px;		
+	}
+	section aside.col-12{
+		z-index: 1;
 	}
 	section main.col-12{
 		position: absolute;
