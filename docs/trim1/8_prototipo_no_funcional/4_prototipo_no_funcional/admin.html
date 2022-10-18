@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Sistema de Información</title>
 	<link rel="shortcut icon" href="img/css.png">
-	<link rel="stylesheet" href="css/all.min.css">	
+	<link rel="stylesheet" href="css/all.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/styles-dashboard-bootstrap4.css">
 </head>
@@ -14,18 +14,21 @@
 <body>
 	<!-- Contenedor -->
 	<div id="contenedor" class="container-fluid">
-		<!-- Navegador -->		
+		<!-- Navegador -->
 		<nav class="row fixed-top">
 			<!-- Logo -->
-			<div class="logo row col-lg-3 d-flex align-items-center justify-content-center bg-light border-right border-bottom">
+			<div
+				class="logo row col-lg-3 d-flex align-items-center justify-content-center bg-light border-right border-bottom">
 				<img src="img/logo_sistema.png" class="text-center" alt="Logo">
 			</div>
 			<!-- Menú -->
-			<div class="menu row col-lg-9 p-0 d-flex align-items-center bg-dark">				
+			<div class="menu row col-lg-9 p-0 d-flex align-items-center bg-dark">
 				<div class="col navbar navbar-expand-lg navbar-light bg-dark p-lg-0">
-					<div class="btn-menu-lateral px-lg-3"><i id="btn-menu-lateral" class="fas fa-exchange-alt"></i></div>
-					<button class="navbar-toggler pr-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-						aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<div class="btn-menu-lateral px-lg-3"><i id="btn-menu-lateral" class="fas fa-exchange-alt"></i>
+					</div>
+					<button class="navbar-toggler pr-0" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon bg-white"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -55,16 +58,17 @@
 									<i class="fa-solid fa-list-check"></i>
 									Actividades
 								</a>
-							</li>							
+							</li>
 						</ul>
 						<ul class="navbar-nav">
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+								<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+									aria-expanded="false">
 									<i class="fa-solid fa-user-tie"></i>
 									Administrador
 								</a>
 								<div class="dropdown-menu  dropdown-menu-right">
-									<a class="dropdown-item ocul-navbar" href="#">Configuración</a>									
+									<a class="dropdown-item ocul-navbar" href="#">Configuración</a>
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item ocul-navbar" href="#">Cerrar Sesión</a>
 								</div>
@@ -73,16 +77,18 @@
 					</div>
 				</div>
 			</div>
-		</nav>		
+		</nav>
 		<!-- Principal -->
 		<section class="row">
 			<!-- Panel Lateral -->
 			<aside id="panel-lateral" class="col-12 col-lg-3 p-0 bg-light">
 				<div id="config" class="config row d-flex justify-content-center">
-					<div id="config-img" class="col-5 row p-lg-3 p-1 d-flex flex-column align-items-center bg-secondary">
+					<div id="config-img"
+						class="col-5 row p-lg-3 p-1 d-flex flex-column align-items-center bg-secondary">
 						<img src="img/usuario.png" class="col p-0 bg-white rounded" alt="">
 					</div>
-					<div id="config-text" class="col-7 p-3 d-flex flex-column justify-content-center font-weight-bold bg-light">
+					<div id="config-text"
+						class="col-7 p-3 d-flex flex-column justify-content-center font-weight-bold bg-light">
 						<p class="m-0">Pepito Perez</p>
 						<p class="m-0">Administrador</p>
 						<a href="#" class="m-0">Configuración</a>
@@ -93,23 +99,29 @@
 						<div class="card">
 							<div class="card-header p-3 bg-dark" id="headingOne">
 								<h2 class="mb-0">
-									<button class="btn btn-block text-left collapsed p-2 " type="input" data-toggle="collapse"
-										data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+									<button class="btn btn-block text-left collapsed p-2 " type="input"
+										data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
+										aria-controls="collapseOne">
+										<i class="fa-solid fa-users"></i>
 										Módulo Usuarios
 									</button>
 								</h2>
 							</div>
-							<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+							<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+								data-parent="#accordionExample">
 								<div class="card-body p-lg-1">
 									<div class="card">
 										<ul class="list-group list-group-flush">
 											<li class="list-group-item p-0 bg-light">
-												<a href="1_users/crear_usuario.html" target="area_trabajo" target="area_trabajo"
-													class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-aside">Crear Usuario</a>
+												<a href="1_users/crear_usuario.html" target="area_trabajo"
+													target="area_trabajo"
+													class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-aside">Crear
+													Usuario</a>
 											</li>
 											<li class="list-group-item p-0 bg-light">
 												<a href="1_users/consultar_usuarios.html" target="area_trabajo"
-													class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-aside">Consultar Usuarios</a>
+													class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-aside">Consultar
+													Usuarios</a>
 											</li>
 										</ul>
 									</div>
@@ -119,23 +131,59 @@
 						<div class="card">
 							<div class="card-header p-3 bg-dark" id="headingTwo">
 								<h2 class="mb-0">
-									<button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
-										data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-										Módulo Principal
+									<button class="btn btn-block text-left collapsed" type="button"
+										data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+										aria-controls="collapseTwo">
+										<i class="fa-brands fa-product-hunt"></i>
+										Módulo Productos
 									</button>
 								</h2>
 							</div>
-							<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+							<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+								data-parent="#accordionExample">
 								<div class="card-body p-lg-1">
 									<div class="card">
 										<ul class="list-group list-group-flush">
 											<li class="list-group-item p-0 bg-light">
 												<a href="5_others/error404.html" target="area_trabajo"
-													class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-aside">Crear Caso de Uso</a>
+													class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-aside">Crear Caso
+													de Uso</a>
 											</li>
 											<li class="list-group-item p-0 bg-light">
 												<a href="5_others/error404.html" target="area_trabajo"
-													class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-aside">Consultar Caso de Uso</a>
+													class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-aside">Consultar
+													Caso de Uso</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header p-3 bg-dark" id="headingThree">
+								<h2 class="mb-0">
+									<button class="btn btn-block text-left collapsed" type="button"
+										data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+										aria-controls="collapseThree">
+										<i class="fa-sharp fa-solid fa-shop"></i>
+										Módulo Compras
+									</button>
+								</h2>
+							</div>
+							<div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+								data-parent="#accordionExample">
+								<div class="card-body p-lg-1">
+									<div class="card">
+										<ul class="list-group list-group-flush">
+											<li class="list-group-item p-0 bg-light">
+												<a href="5_others/error404.html" target="area_trabajo"
+													class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-aside">Crear Caso
+													de Uso</a>
+											</li>
+											<li class="list-group-item p-0 bg-light">
+												<a href="5_others/error404.html" target="area_trabajo"
+													class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-aside">Consultar
+													Caso de Uso</a>
 											</li>
 										</ul>
 									</div>
@@ -146,22 +194,25 @@
 							<div class="card-header p-3 bg-dark" id="headingThree">
 								<h2 class="mb-0">
 									<button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
-										data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-										Módulo Secundario
+										data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+										<i class="fa-solid fa-cart-shopping"></i>
+										Módulo Ventas
 									</button>
 								</h2>
 							</div>
-							<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+							<div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
 								<div class="card-body p-lg-1">
 									<div class="card">
 										<ul class="list-group list-group-flush">
 											<li class="list-group-item p-0 bg-light">
 												<a href="5_others/error404.html" target="area_trabajo"
-													class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-aside">Crear Caso de Uso</a>
+													class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-aside">Crear Caso
+													de Uso</a>
 											</li>
 											<li class="list-group-item p-0 bg-light">
 												<a href="5_others/error404.html" target="area_trabajo"
-													class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-aside">Consultar Caso de Uso</a>
+													class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-aside">Consultar
+													Caso de Uso</a>
 											</li>
 										</ul>
 									</div>
@@ -171,23 +222,30 @@
 						<div class="card">
 							<div class="card-header p-3 bg-dark" id="headingFour">
 								<h2 class="mb-0">
-									<button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
-										data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+									<button class="btn btn-block text-left collapsed" type="button"
+										data-toggle="collapse" data-target="#collapseFive" aria-expanded="false"
+										aria-controls="collapseFive">
+										<i class="fa-solid fa-chart-pie"></i>
 										Módulo Reportes
 									</button>
 								</h2>
 							</div>
-							<div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+							<div id="collapseFive" class="collapse" aria-labelledby="headingFour"
+								data-parent="#accordionExample">
 								<div class="card-body p-lg-1">
 									<div class="card">
 										<ul class="list-group list-group-flush">
 											<li class="list-group-item p-0 bg-light">
-												<a href="4_mod_reports/reports_graf/reportes_graf.html" target="area_trabajo"
-													class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-aside">Reportes Gráficos</a>
+												<a href="4_mod_reports/reports_graf/reportes_graf.html"
+													target="area_trabajo"
+													class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-aside">Reportes
+													Gráficos</a>
 											</li>
 											<li class="list-group-item p-0 bg-light">
-												<a href="4_mod_reports/reports_imp/reports_imp.html" target="area_trabajo"
-													class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-aside">Reportes Impresos</a>
+												<a href="4_mod_reports/reports_imp/reports_imp.html"
+													target="area_trabajo"
+													class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-aside">Reportes
+													Impresos</a>
 											</li>
 										</ul>
 									</div>
@@ -195,18 +253,29 @@
 							</div>
 						</div>
 					</div>
-				</div>				
+				</div>
 			</aside>
 			<!-- Área de Trabajo -->
-			<main id="area_principal" class="col-12 col-lg-9 p-0">				
+			<main id="area_principal" class="col-12 col-lg-9 p-0">
 				<!-- Carga de páginas -->
 				<iframe src="modules/0_mains/admin_main.html"></iframe>
 			</main>
 		</section>
 		<!-- Pie de Página -->
 		<footer class="row text-light">
-			<div class="pie-izq col-lg-3 p-2 d-flex flex-column justify-content-center bg-dark">
-				<p class="p-0 m-0 text-center">pie izquierdo</p>
+			<div class="pie-izq col-lg-3 row p-2 d-flex align-items-center justify-content-center text-center bg-dark">
+				<a class="col" href="#">
+					<i class="fa-solid fa-envelope"></i>
+				</a>
+				<a class="col" href="#">
+					<i class="fa-solid fa-calendar-days"></i>					
+				</a>
+				<a class="col" href="#">
+					<i class="fa-solid fa-list-check"></i>
+				</a>
+				<a class="col" href="#">
+					<i class="fa-sharp fa-solid fa-right-from-bracket"></i>
+				</a>				
 			</div>
 			<div class="pie-der col-lg-9 p-2 d-flex flex-column justify-content-center bg-secondary">
 				<p class="p-0 m-0 text-center">Todos los Derechos Reservados a:</p>

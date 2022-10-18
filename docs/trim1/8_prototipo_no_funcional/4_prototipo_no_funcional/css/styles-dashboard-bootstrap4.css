@@ -154,6 +154,10 @@ main iframe{
 footer{	
 	height: 8vh;	
 }
+footer .pie-izq a{
+	color: #FFF;
+	font-size: 1.4em;
+}
 footer p{
 	font-size: 0.6em;
 }
