@@ -173,16 +173,7 @@ footer p{
 	section aside.col-12{		
 		position: relative;
 		z-index: 1;
-	}
-	aside .config {
-		font-size: 0.6em;
-		height: 10%;
-	}
-	aside img.col {
-		width: 65px !important;
-		height: 35px;
-		padding: 0 !important;
-	}
+	}	
 	aside .modulos {
 		height: 80%;
 	}
