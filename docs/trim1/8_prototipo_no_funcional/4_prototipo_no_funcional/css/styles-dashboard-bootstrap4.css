@@ -155,6 +155,7 @@ footer p{
 		padding-top: 126px;		
 	}
 	section aside.col-12{
+		position: relative;
 		z-index: 1;
 	}
 	aside img.col {
