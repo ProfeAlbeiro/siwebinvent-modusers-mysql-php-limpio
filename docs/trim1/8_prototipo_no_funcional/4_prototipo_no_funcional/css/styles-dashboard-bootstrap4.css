@@ -100,6 +100,10 @@ aside{
 aside .config{
 	height: 18%;
 }
+aside img.col{	
+	width: 100px !important;
+	height: 80px;
+}
 aside .modulos{
 	height: 82%;
 	overflow-y: scroll;
@@ -148,7 +152,7 @@ footer p{
 		height: 50px;
 	}		
 	section.row{
-		padding-top: 120px;		
+		padding-top: 126px;		
 	}
 	section aside.col-12{
 		z-index: 1;
