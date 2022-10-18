@@ -70,8 +70,12 @@ body{
 nav{
 	height: 50px;	
 }
-nav .logo{
-	
+nav .logo img{
+	height: 40px;
+	padding-top: 5px;
+}
+nav .menu li>a{
+	color: #FFF !important;
 }
 nav img{
 	height: 50px;
@@ -136,10 +140,7 @@ footer p{
 /* -------------------------------------- TABLETS -------------------------------------- */
 /* ------------------------------------------------------------------------------------- */
 
-@media (max-width: 991px) {
-	nav {
-		/* height: 100px; */
-	}
+@media (max-width: 991px) {	
 	nav .logo.row {
 		height: 70px;
 	}
