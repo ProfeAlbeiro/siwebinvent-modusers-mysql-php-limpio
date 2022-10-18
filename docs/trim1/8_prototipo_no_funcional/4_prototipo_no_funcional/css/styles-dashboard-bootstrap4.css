@@ -112,6 +112,16 @@ aside .modulos{
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
+aside .modulos button{
+	color: #FFF;
+	white-space: nowrap;
+	padding: 0 !important;
+}
+aside .modulos button:hover {
+	color: #FFF;
+	background: rgba(255,255,255, 0.2);	
+}
+
 /* ------------------------------------------------------------------------------------- */
 /* MAIN: ÁREA DE TRABAJO --------------------------------------------------------------- */
 /* ------------------------------------------------------------------------------------- */
