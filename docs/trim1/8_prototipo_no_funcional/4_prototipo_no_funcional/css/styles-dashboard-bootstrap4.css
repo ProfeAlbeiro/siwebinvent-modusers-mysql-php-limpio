@@ -154,8 +154,7 @@ footer p{
 	section.row{
 		padding-top: 126px;		
 	}
-	section aside.col-12{
-		/* padding-top: 100px; */
+	section aside.col-12{		
 		position: relative;
 		z-index: 1;
 	}
@@ -164,7 +163,7 @@ footer p{
 		height: 10%;
 	}
 	aside .modulos {
-		height: 90%;
+		height: 88%;
 	}
 	aside img.col {
 		width: 60px !important;
@@ -174,7 +173,7 @@ footer p{
 	section main.col-12{
 		position: absolute;
 		z-index: -1;
-		height: 75%;
+		height: 74%;
 		padding: 100px;
 	}
 	footer.row{
