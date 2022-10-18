@@ -146,10 +146,10 @@ main iframe{
 	height: 7vh;
 }
 .titulo-contenido{
-	height: 7vh;
+	height: 8vh;
 }
 .contenido{
-	height: 86vh;
+	height: 85vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
