@@ -103,9 +103,12 @@ aside{
 aside .config{
 	height: 18%;
 }
-aside img.col{	
+aside img{	
 	width: 100px !important;
 	height: 80px;
+}
+aside #config-text{
+	font-size: 0.8em;
 }
 aside .modulos{
 	height: 82%;
