@@ -29,11 +29,14 @@
 }
 /* Panel Lateral */
 .activar-panel {	
-	flex: none !important;
+	visibility: hidden;
+	flex: none !important;	
 	max-width: 0 !important;
 	transition: all 200ms linear !important;
 	border: 0 !important;
-	visibility: hidden;
+}
+.ocultar-aside {
+	display: none !important;
 }
 .ampliar-principal {
 	flex: 0 0 100% !important;
