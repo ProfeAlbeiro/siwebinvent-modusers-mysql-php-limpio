@@ -117,8 +117,12 @@ aside .modulos button{
 	white-space: nowrap;
 	padding: 0 !important;
 }
+aside .modulos button:focus {	
+	outline: none !important;
+	box-shadow: none !important;
+}
 aside .modulos button:hover {
-	color: #FFF;	
+	color: #FFF;		
 }
 
 /* ------------------------------------------------------------------------------------- */
