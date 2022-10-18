@@ -157,6 +157,10 @@ footer p{
 	section aside.col-12{
 		z-index: 1;
 	}
+	aside img.col {
+		width: 60px !important;
+		height: 40px;
+	}
 	section main.col-12{
 		position: absolute;
 		z-index: -1;
