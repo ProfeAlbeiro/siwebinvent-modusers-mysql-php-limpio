@@ -118,8 +118,7 @@ aside .modulos button{
 	padding: 0 !important;
 }
 aside .modulos button:hover {
-	color: #FFF;
-	background: rgba(255,255,255, 0.2);	
+	color: #FFF;	
 }
 
 /* ------------------------------------------------------------------------------------- */
