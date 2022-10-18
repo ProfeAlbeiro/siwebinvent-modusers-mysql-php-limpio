@@ -115,6 +115,9 @@ aside .modulos{
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
+aside .card-header{
+	background: #2D394B;
+}
 aside .modulos button{
 	color: #FFF;
 	white-space: nowrap;
@@ -140,10 +143,13 @@ main iframe{
 	border: 0;	
 }
 .migas{
-	height: 7vh;	
+	height: 7vh;
+}
+.titulo-contenido{
+	height: 7vh;
 }
 .contenido{
-	height: 93vh;
+	height: 86vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
