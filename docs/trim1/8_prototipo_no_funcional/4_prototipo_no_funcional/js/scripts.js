@@ -673,7 +673,7 @@ function validarLogin(){
 		})
 		.then((value) => {
 			document.formLogin.submit();
-			window.location = url('admin.html');			
+			window.location = '../admin.html';			
 		});		
 	} 
 	// Si no coinciden con los Datos

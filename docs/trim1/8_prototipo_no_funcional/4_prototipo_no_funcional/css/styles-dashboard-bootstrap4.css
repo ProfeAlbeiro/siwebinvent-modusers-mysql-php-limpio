@@ -188,7 +188,7 @@ footer p{
 		z-index: 1;
 	}	
 	aside .modulos {
-		height: 80%;
+		min-height: 80%;
 	}
 	section main.col-12{
 		position: absolute;
