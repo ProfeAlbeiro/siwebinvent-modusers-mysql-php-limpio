@@ -2,13 +2,14 @@
 /* DOM: CAPTURADOR DE CLICK EN EL DOM (Clases) ------------------------------------ */
 /* -------------------------------------------------------------------------------- */
 const navega = document.querySelectorAll(".ocul-navbar");
-const ocultaConClick = function (evento) {    
-    document.getElementById("navbarSupportedContent").classList.toggle('show');
-}
-// navega es un arreglo así que lo recorremos
-navega.forEach(nav => {
-    //Agregar listener
-    nav.addEventListener("click", ocultaConClick);
+const panel = document.querySelectorAll(".ocul-panel");
+
+// Recorre
+navega.forEach(nav => {    
+    nav.addEventListener("click", ocultaConClick);    
+});
+panel.forEach(aside => {
+    aside.addEventListener("click", btnMenuLateral);
 });
 
 /* -------------------------------------------------------------------------------- */
@@ -21,6 +22,20 @@ hacerClicDash.addEventListener('click', function (event) {
         btnMenuLateral();
     }
 });
+
+/* -------------------------------------------------------------------------------- */
+/* FUNCIONES ---------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------- */
+// Ocultar Barra de Navegación
+function ocultaConClick() {
+    var item = document.getElementById("panel-lateral");
+    var activo = item.classList.contains('activar-panel');    
+    document.getElementById("navbarSupportedContent").classList.toggle('show');
+    if (!activo) {
+        btnMenuLateral();
+    } 
+}
+
 // Ocultar Panel Lateral
 function btnMenuLateral() {
     document.getElementById("panel-lateral").classList.toggle('activar-panel');
