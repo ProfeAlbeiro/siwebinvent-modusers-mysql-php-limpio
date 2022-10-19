@@ -148,13 +148,13 @@ main iframe{
 .titulo-contenido{
 	background: #2D394B;
 	color: #FFF;
-	height: 8vh;	
+	height: 9vh;	
 }
 .titulo-contenido h5{	
 	font-size: 1.5em;
 }
 .contenido{
-	height: 86vh;
+	height: 85vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
