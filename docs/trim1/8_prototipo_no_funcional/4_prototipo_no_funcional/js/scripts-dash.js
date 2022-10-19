@@ -29,9 +29,9 @@ hacerClicDash.addEventListener('click', function (event) {
 // Ocultar Barra de Navegación
 function ocultaConClick() {
     var item = document.getElementById("panel-lateral");
-    var activo = item.classList.contains('activar-panel');    
+    var panelActivo = item.classList.contains('activar-panel');    
     document.getElementById("navbarSupportedContent").classList.toggle('show');
-    if (!activo) {
+    if (screen.width < 992 && !panelActivo) {
         btnMenuLateral();
     } 
 }
