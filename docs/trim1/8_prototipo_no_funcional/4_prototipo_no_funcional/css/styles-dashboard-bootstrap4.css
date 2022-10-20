@@ -191,9 +191,13 @@ footer p{
 	section aside.col-12{		
 		position: relative;
 		z-index: 1;
-	}	
+	}
+	aside img {
+		width: auto !important;
+		height: 100px !important;
+	}
 	aside .modulos {
-		height: 74%;
+		height: 70%;
 	}
 	section main.col-12{
 		position: absolute;
