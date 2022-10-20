@@ -143,7 +143,7 @@ main iframe{
 	border: 0;	
 }
 .migas{
-	height: 6vh;
+	height: 8vh;
 }
 .titulo-contenido{
 	background: #2D394B;
@@ -154,7 +154,7 @@ main iframe{
 	font-size: 1.5em;
 }
 .contenido{
-	height: 84vh;
+	height: 82vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
