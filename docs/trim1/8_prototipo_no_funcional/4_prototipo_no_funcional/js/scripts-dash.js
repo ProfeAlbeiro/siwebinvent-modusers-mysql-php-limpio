@@ -28,8 +28,8 @@ hacerClicDash.addEventListener('click', function (event) {
 /* -------------------------------------------------------------------------------- */
 // Ocultar Barra de Navegación
 function ocultaNav() {
-    var item = document.getElementById("panel-lateral");
-    var panelActivo = item.classList.contains('activar-panel');    
+    var item1 = document.getElementById("panel-lateral");
+    var panelActivo = item1.classList.contains('activar-panel');    
     document.getElementById("navbarSupportedContent").classList.toggle('show');
     if (screen.width < 992 && !panelActivo) {
         btnMenuLateral();
@@ -48,7 +48,12 @@ function btnMenuLateral() {
 
 // Ocultar Panel Lateral: Celular
 function ocultaPanel() {
+    var item2 = document.getElementById("navbarSupportedContent");
+    var navActivo = item2.classList.contains('show');     
     if (screen.width < 992) {
-        btnMenuLateral();
+        btnMenuLateral(); 
+        if (navActivo) {
+            document.getElementById("navbarSupportedContent").classList.toggle('show');
+        }
     }
 }

@@ -101,17 +101,17 @@ aside{
 	border-right: 1px solid #dee2e6 !important;	
 }
 aside .config{
-	height: 18%;
+	height: 25%;
 }
 aside img{	
-	width: 100px !important;
-	height: 80px;
+	width: auto !important;
+	height: 85px !important;
 }
 aside #config-text{
 	font-size: 0.8em;
 }
 aside .modulos{
-	height: 82%;
+	height: 75%;
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
