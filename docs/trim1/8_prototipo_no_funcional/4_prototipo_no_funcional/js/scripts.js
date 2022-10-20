@@ -588,7 +588,8 @@ function validarRegister(){
 			button: "Aceptar",
 		})
 		.then((value) => {
-			document.formRegister.submit();
+			// document.formRegister.submit();
+			window.location = 'login.html';
 		});
 	}
 }
@@ -672,8 +673,8 @@ function validarLogin(){
 			button: "Aceptar",
 		})
 		.then((value) => {
-			document.formLogin.submit();
-			window.location = '../admin.html';			
+			// document.formLogin.submit();
+			window.location = '../admin.html';
 		});		
 	} 
 	// Si no coinciden con los Datos

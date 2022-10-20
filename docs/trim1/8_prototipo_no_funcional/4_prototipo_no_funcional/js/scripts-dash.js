@@ -1,31 +1,47 @@
 /* -------------------------------------------------------------------------------- */
-/* DOM: CAPTURADOR DE CLICK EN EL DOM (Clases) ------------------------------------ */
+/* DOM: CAPTURADOR DE ID Y CLICK EN EL DOM (Clases) ------------------------------------ */
 /* -------------------------------------------------------------------------------- */
 const navega = document.querySelectorAll(".ocul-navbar");
 const panel = document.querySelectorAll(".ocul-panel");
+const capturaId = document.querySelectorAll(".captura-id");
 
-// Recorre
+// Oculta Barra Navegación
 navega.forEach(nav => {    
     nav.addEventListener("click", ocultaNav);    
 });
+// Oculta Panel de Control
 panel.forEach(aside => {
-    aside.addEventListener("click", ocultaPanel);
+    aside.addEventListener("click", ocultaPanel);    
+});
+// Captura el Id
+capturaId.forEach(captura => {
+    captura.addEventListener("click", capturaIdMet);
 });
 
-/* -------------------------------------------------------------------------------- */
-/* DOM: CAPTURADOR DE CLICK EN EL DOM (Identificadores) --------------------------- */
-/* -------------------------------------------------------------------------------- */
-hacerClicDash = document.getElementById("contenedor");
-hacerClicDash.addEventListener('click', function (event) {
-    id = event.target.getAttribute("id");
+function capturaIdMet() {
+    id = event.target.getAttribute("id");     
     if (id === "btn-menu-lateral") {
         btnMenuLateral();
-    }
-});
+    } else if (id === "submit-user-create") {
+        event.preventDefault();
+        swal({
+            title: "Usuario Creado correctamente!",
+            text: "Le llegará al Usuario un Correo Electrónico para validar el Registro",
+            icon: "success",
+            button: "Aceptar",
+        })
+            .then((value) => {            
+            // document.formUserCreate.submit();            
+            window.location = '../1_users/user_read.html';
+        });
+    } 
+}
 
 /* -------------------------------------------------------------------------------- */
 /* FUNCIONES ---------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------------- */
+
+
 // Ocultar Barra de Navegación
 function ocultaNav() {
     var item1 = document.getElementById("panel-lateral");
@@ -43,7 +59,7 @@ function btnMenuLateral() {
     document.getElementById("config-text").classList.toggle('ocultar-aside');
     document.getElementById("config").classList.toggle('activar-panel');
     document.getElementById("modulos").classList.toggle('activar-panel');
-    document.getElementById("area_principal").classList.toggle('ampliar-principal');
+    document.getElementById("area_principal").classList.toggle('ampliar-principal');    
 }
 
 // Ocultar Panel Lateral: Celular

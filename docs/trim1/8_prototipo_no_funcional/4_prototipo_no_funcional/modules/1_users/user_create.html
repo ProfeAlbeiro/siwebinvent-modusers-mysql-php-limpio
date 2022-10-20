@@ -13,7 +13,7 @@
 
 <body>
     <!-- Contenedor -->
-    <div class="container-fluid">
+    <div class="container-fluid captura-id">
         <!-- Migas de Pan -->
         <div class="migas row d-flex align-items-center bg-white border-bottom">
             <div class="col p-0">
@@ -42,7 +42,7 @@
         <!-- Contenido -->
         <div class="contenido row bg-light p-2">
             <div class="col p-0 bg-light">
-                <form id="crear_usuario" class="card p-3 bg-dark text-white d-lg-flex justify-content-center w-100 border rounded p-2">
+                <form id="formUserCreate" name="formUserCreate" class="card p-3 bg-dark text-white d-lg-flex justify-content-center w-100 border rounded p-2" action="user_read.html" method="post">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="foto">Foto</label>
@@ -100,12 +100,13 @@
                             </select>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-info mb-2">Enviar</button>
+                    <input type="submit" id="submit-user-create" class="btn btn-info mb-2" value="Enviar">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cerrar">Cerrar</button>
                 </form>
             </div>
         </div>
     </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../js/jquery.slim.min.js"></script>
     <script src="../../js/popper.min.js"></script>
     <script src="../../js/bootstrap.min.js"></script>

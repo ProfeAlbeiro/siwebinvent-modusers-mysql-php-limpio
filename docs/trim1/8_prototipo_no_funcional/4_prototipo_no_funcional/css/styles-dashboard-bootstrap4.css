@@ -158,6 +158,11 @@ main iframe{
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
+.contenido form input:focus,	
+.contenido form select:focus {	
+	outline: none !important;
+	box-shadow: none !important;
+}
 
 /* ------------------------------------------------------------------------------------- */
 /* FOOTER: PIE DE PÁGINA --------------------------------------------------------------- */
