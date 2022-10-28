@@ -48,6 +48,7 @@ $(document).ready(function () {
 const navega = document.querySelectorAll(".ocul-navbar");
 const panel = document.querySelectorAll(".ocul-panel");
 const capturaId = document.querySelectorAll(".captura-id");
+const eliminaUser = document.querySelectorAll(".tabla-delete");
 
 // Oculta Barra Navegación
 navega.forEach(nav => {    
@@ -56,6 +57,10 @@ navega.forEach(nav => {
 // Oculta Panel de Control
 panel.forEach(aside => {
     aside.addEventListener("click", ocultaPanel);    
+});
+// Eliminar Usuario
+eliminaUser.forEach(elimina => {
+    elimina.addEventListener("click", deleteUser);
 });
 // Captura el Id
 capturaId.forEach(captura => {
@@ -78,7 +83,19 @@ function capturaIdMet() {
             // document.formUserCreate.submit();            
             window.location = '../1_users/user_read.html';
         });
-    } 
+    } else if (id === "submit-user-update") {
+        event.preventDefault();
+        swal({
+            title: "Usuario Actualizado correctamente!",
+            text: "Verifique el registro con los datos actualizados",
+            icon: "success",
+            button: "Aceptar",
+        })
+            .then((value) => {
+            // document.formUserCreate.submit();            
+            window.location = '../1_users/user_read.html';
+        });
+    }
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -115,5 +132,26 @@ function ocultaPanel() {
             document.getElementById("navbarSupportedContent").classList.toggle('show');
         }
     }
+}
+
+// Mensaje de Eliminación del Usuario
+function deleteUser() {
+    swal({
+        title: "Está seguro de eliminar el registro",
+        text: "Si elimina el registro, ya no podrá ser recuperado de la memoria!",
+        icon: "warning",
+        buttons: [true, "Aceptar"],
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                swal("El registro ha sido eliminado!", {
+                    icon: "success",
+                });
+                tabla.deleteRow(i);
+            } else {
+                swal("El registro se ha convervado");
+            }
+        });
 }
 
