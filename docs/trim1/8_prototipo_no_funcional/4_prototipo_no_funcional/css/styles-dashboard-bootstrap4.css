@@ -48,6 +48,63 @@ main {
 	transition: all 200ms linear !important;
 	height: auto;
 }
+
+/* ------------------------------------------------------------------------------------- */
+/* DATATABLES.JS: FILTROS DE TABLA ----------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+#data-tables {
+	padding: 10px;
+	border: 1px solid #CCC;
+}
+
+#data-tables td,
+#data-tables th {
+	border: 1px solid #DDD;	
+	padding: 6px;
+	text-align: center !important;
+}
+
+#data-tables th {
+	background: #000;
+	color: #FFF;
+}
+
+#data-tables tr:nth-child(even) {
+	background-color: #DDD;
+}
+
+#data-tables .tabla-acciones {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+#data-tables .tabla-acciones a {
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	padding: 8px !important;
+	border-radius: 4px !important;
+}
+#data-tables .tabla-acciones a:hover {
+	background: rgba(0,0,0, 0.5)!important;
+}
+#data-tables .tabla-acciones .tabla-edit {
+	color: #EEE !important;
+	background: #2A5159 !important;	
+}
+
+#data-tables .tabla-acciones .tabla-delete {
+	color: #EEE !important;
+	background: #D34826 !important;
+	margin-left: 5px !important;
+}
+
+
 /* ------------------------------------------------------------------------------------- */
 /* ---------------------------- II. LAYOUT: MAQUETACIÓN WEB ---------------------------- */
 /* ------------------------------- ESCRITORIO Y PORTATIL ------------------------------- */
@@ -184,6 +241,32 @@ footer p{
 /* ------------------------------------------------------------------------------------- */
 
 @media (max-width: 991px) {	
+	/* DataTables.js */
+	#data-tables {
+		margin-top: 10px;
+	}	
+
+	#data-tables td,
+	#data-tables th {		
+		text-align: left !important;
+	}
+	#data-tables tbody td a {
+		display: initial;
+		padding: 6px;
+		border-radius: 4px;
+		margin-top: 5px;
+	}
+
+	#data-tables tbody td a.tabla-edit {
+		color: #EEE;
+		background: #2A5159;
+	}
+
+	#data-tables tbody td a.tabla-delete {
+		color: #EEE;
+		background: #D34826;
+		margin-left: 5px;
+	}
 	nav .logo.row {
 		height: 70px;
 	}

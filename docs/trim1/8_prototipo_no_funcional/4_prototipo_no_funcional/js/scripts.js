@@ -879,7 +879,6 @@ function ejemplo1() {
 		e.chart1.render();
 	}
 }
-
 function ejemplo2() {
 	var chart2 = new CanvasJS.Chart("example2", {
 		exportEnabled: true,

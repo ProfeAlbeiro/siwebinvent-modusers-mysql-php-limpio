@@ -1,5 +1,49 @@
+
 /* -------------------------------------------------------------------------------- */
-/* DOM: CAPTURADOR DE ID Y CLICK EN EL DOM (Clases) ------------------------------------ */
+/* DATATABLES: FILTROS EN TABLA --------------------------------------------------- */
+/* -------------------------------------------------------------------------------- */
+$(document).ready(function () {
+    var table = $('#data-tables').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy',
+            'csv',
+            'excel',
+            'pdf',
+            {
+                extend: 'print',
+                text: 'Imprimir Todo',
+                exportOptions: {
+                    modifier: {
+                        selected: null
+                    }
+                }
+            }
+        ],
+        select: true,
+        rowReorder: {
+            selector: 'td:nth-child(2)'
+        },
+        responsive: true,
+        language: {
+            search: 'Buscar',
+            zeroRecords: 'No hay registros para mostrar.',
+            emptyTable: 'La tabla está vacia.',
+            info: "Mostrando _START_ de _END_ de _TOTAL_ Registros.",
+            infoFiltered: "(Filtrados de _MAX_ Registros.)",
+            paginate: {
+                first: 'Primero',
+                previous: 'Anterior',
+                next: 'Siguiente',
+                last: 'Último'
+            }
+        }
+    });
+});
+
+
+/* -------------------------------------------------------------------------------- */
+/* DOM: CAPTURADOR DE ID Y CLICK EN EL DOM (Clases) ------------------------------- */
 /* -------------------------------------------------------------------------------- */
 const navega = document.querySelectorAll(".ocul-navbar");
 const panel = document.querySelectorAll(".ocul-panel");
@@ -41,7 +85,6 @@ function capturaIdMet() {
 /* FUNCIONES ---------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------------- */
 
-
 // Ocultar Barra de Navegación
 function ocultaNav() {
     var item1 = document.getElementById("panel-lateral");
@@ -73,3 +116,4 @@ function ocultaPanel() {
         }
     }
 }
+
