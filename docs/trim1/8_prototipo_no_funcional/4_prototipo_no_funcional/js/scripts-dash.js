@@ -48,7 +48,6 @@ $(document).ready(function () {
 const navega = document.querySelectorAll(".ocul-navbar");
 const panel = document.querySelectorAll(".ocul-panel");
 const capturaId = document.querySelectorAll(".captura-id");
-const eliminaUser = document.querySelectorAll(".tabla-delete");
 
 // Oculta Barra Navegación
 navega.forEach(nav => {    
@@ -57,10 +56,6 @@ navega.forEach(nav => {
 // Oculta Panel de Control
 panel.forEach(aside => {
     aside.addEventListener("click", ocultaPanel);    
-});
-// Eliminar Usuario
-eliminaUser.forEach(elimina => {
-    elimina.addEventListener("click", deleteUser);
 });
 // Captura el Id
 capturaId.forEach(captura => {
@@ -94,6 +89,24 @@ function capturaIdMet() {
             .then((value) => {
             // document.formUserCreate.submit();            
             window.location = '../1_users/user_read.html';
+        });
+    } else if (id === "submit-user-delete" || id ==="submit-user-delet-i") {
+        swal({
+            title: "Está seguro de eliminar el Usuario",
+            text: "Si elimina el Usuario, ya no podrá ser recuperado de la memoria!",
+            icon: "warning",
+            buttons: [true, "Aceptar"],
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+            if (willDelete) {
+                swal("El Usuario ha sido eliminado!", {
+                    icon: "success",
+                });
+                tabla.deleteRow(i);
+            } else {
+                swal("El Usuario se ha convervado");
+            }
         });
     }
 }
@@ -137,20 +150,20 @@ function ocultaPanel() {
 // Mensaje de Eliminación del Usuario
 function deleteUser() {
     swal({
-        title: "Está seguro de eliminar el registro",
-        text: "Si elimina el registro, ya no podrá ser recuperado de la memoria!",
+        title: "Está seguro de eliminar el Usuario",
+        text: "Si elimina el Usuario, ya no podrá ser recuperado de la memoria!",
         icon: "warning",
         buttons: [true, "Aceptar"],
         dangerMode: true,
     })
         .then((willDelete) => {
             if (willDelete) {
-                swal("El registro ha sido eliminado!", {
+                swal("El Usuario ha sido eliminado!", {
                     icon: "success",
                 });
                 tabla.deleteRow(i);
             } else {
-                swal("El registro se ha convervado");
+                swal("El Usuario se ha convervado");
             }
         });
 }
