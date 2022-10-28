@@ -13,13 +13,15 @@
 
 <body>
     <!-- Contenedor -->
-    <div class="container-fluid">
+    <div class="container-fluid captura-id">
         <!-- Migas de Pan -->
-        <div class="migas row d-flex align-items-center bg-light border-bottom">
+        <div class="migas row d-flex align-items-center bg-white border-bottom">
             <div class="col p-0">
                 <div aria-label="breadcrumb">
-                    <ol class="breadcrumb rounded-0 m-0 p-2 bg-light">
+                    <ol class="breadcrumb rounded-0 m-0 p-2 bg-white">
                         <li class="breadcrumb-item"><a href="../0_mains/admin_main.html">Inicio</a></li>
+                        <li class="breadcrumb-item">Módulo Usuarios</li>
+                        <li class="breadcrumb-item active" aria-current="page">Consultar Usuarios</li>
                     </ol>
                 </div>
             </div>
@@ -27,16 +29,24 @@
 
         <!-- Título -->
         <div class="titulo-contenido row">
-            <div class="col p-0 border-bottom d-flex justify-content-center align-items-center">
-                <h5 class="m-0">Error 404</h5>
+            <div class="col p-2 border-bottom d-flex justify-content-center align-items-center">
+                <div class="col-6 p-0 d-flex justify-content-start align-items-center">
+                    <h5 class="m-0">Consultar Usuarios</h5>
+                </div>
+                <div class="col-6 d-flex justify-content-end align-items-center p-0">
+                    <a href="user_create.html" class="btn btn-light">Crear Usuario</a>
+                </div>
             </div>
         </div>
 
         <!-- Contenido -->
-        <div class="contenido row bg-white p-3">
-            <img src="../../img/error404.png" class="col h-100 p-0" alt="error404">
+        <div class="contenido row bg-light p-2">
+            <div class="col p-0 bg-light">
+                
+            </div>
         </div>
     </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../js/jquery.slim.min.js"></script>
     <script src="../../js/popper.min.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
