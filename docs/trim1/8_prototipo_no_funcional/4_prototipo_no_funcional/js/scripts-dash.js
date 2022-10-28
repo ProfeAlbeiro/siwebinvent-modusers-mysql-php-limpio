@@ -78,6 +78,18 @@ function capturaIdMet() {
             // document.formUserCreate.submit();            
             window.location = '../1_users/user_read.html';
         });
+    } else if (id === "submit-user-create-cancel") {
+        event.preventDefault();
+        swal({
+            title: "Se canceló el Registro de Usuario!",
+            text: "No se ha guardado ningún dato",
+            icon: "error",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                // document.formRegister.reset();
+                window.location = 'user_read.html';
+            });
     } else if (id === "submit-user-update") {
         event.preventDefault();
         swal({
@@ -90,24 +102,18 @@ function capturaIdMet() {
             // document.formUserCreate.submit();            
             window.location = '../1_users/user_read.html';
         });
-    } else if (id === "submit-user-delete" || id ==="submit-user-delet-i") {
+    } else if (id === "submit-user-update-cancel") {
+        event.preventDefault();
         swal({
-            title: "Está seguro de eliminar el Usuario",
-            text: "Si elimina el Usuario, ya no podrá ser recuperado de la memoria!",
-            icon: "warning",
-            buttons: [true, "Aceptar"],
-            dangerMode: true,
+            title: "Se canceló la Actualización del Usuario!",
+            text: "No se ha guardado ningún dato",
+            icon: "error",
+            button: "Aceptar",
         })
-            .then((willDelete) => {
-            if (willDelete) {
-                swal("El Usuario ha sido eliminado!", {
-                    icon: "success",
-                });
-                tabla.deleteRow(i);
-            } else {
-                swal("El Usuario se ha convervado");
-            }
-        });
+            .then((value) => {
+                // document.formRegister.reset();
+                window.location = 'user_read.html';
+            });
     }
 }
 
