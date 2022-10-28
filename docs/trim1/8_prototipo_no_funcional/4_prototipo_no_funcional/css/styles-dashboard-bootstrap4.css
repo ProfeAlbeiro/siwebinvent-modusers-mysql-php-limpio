@@ -241,6 +241,10 @@ footer p{
 /* ------------------------------------------------------------------------------------- */
 
 @media (max-width: 991px) {	
+	/* Texto */
+	.titulo-contenido h5{	
+		font-size: 1.2em;
+	}
 	/* DataTables.js */
 	#data-tables {
 		margin-top: 10px;
