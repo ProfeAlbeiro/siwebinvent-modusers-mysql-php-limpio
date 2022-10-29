@@ -1,5 +1,3 @@
-window.onload = perfilar();
-
 /* -------------------------------------------------------------------------------- */
 /* DATATABLES: FILTROS EN TABLA --------------------------------------------------- */
 /* -------------------------------------------------------------------------------- */
@@ -60,12 +58,11 @@ panel.forEach(aside => {
 });
 // Captura el Id
 capturaId.forEach(captura => {
-    captura.addEventListener("click", capturaIdMet);
+    captura.addEventListener("click", capturaIdMet);    
 });
 
 function capturaIdMet() {
-    id = event.target.getAttribute("id");    
-    // enfoque = id.addEventListener("focus", perfilar);
+    id = event.target.getAttribute("id");
     if (id === "btn-menu-lateral") {
         btnMenuLateral();
     } else if (id === "submit-user-create") {
@@ -179,6 +176,12 @@ function deleteUser() {
 }
 
 // Crear Usuario: Controles según perfil
+function capturarEnfoque() {
+    alert('Hola Mundo');
+    // window.onload = function () {
+    //     document.getElementById("perfil").focus();
+    // }
+}
 function perfilar() {
     let user = document.getElementById("perfil").value;
     if (user === "usuario") {
