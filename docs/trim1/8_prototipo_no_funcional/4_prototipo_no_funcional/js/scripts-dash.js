@@ -46,7 +46,7 @@ $(document).ready(function () {
 const navega = document.querySelectorAll(".ocul-navbar");
 const panel = document.querySelectorAll(".ocul-panel");
 const capturaId = document.querySelectorAll(".captura-id");
-// const capturaEnfoque = document.querySelectorAll(".class-perfil");
+const capturaEnfoque = document.querySelectorAll(".class-perfil");
 
 // Oculta Barra Navegación
 navega.forEach(nav => {    
@@ -190,13 +190,21 @@ function perfilar() {
         document.getElementById("confirmacion_group").classList.add('ocultar-control');
         document.getElementById("fechaNac_group").classList.add('ocultar-control');
         document.getElementById("estado_group").classList.add('ocultar-control');
-    } else {
+        document.getElementById("salario_group").classList.add('ocultar-control');
+    } else if (user.text === "cliente") {
         document.getElementById("foto_group").classList.remove('ocultar-control');
         document.getElementById("doc_identidad_group").classList.remove('ocultar-control');
         document.getElementById("contrasena_us_group").classList.remove('ocultar-control');
         document.getElementById("confirmacion_group").classList.remove('ocultar-control');
         document.getElementById("fechaNac_group").classList.remove('ocultar-control');
         document.getElementById("estado_group").classList.remove('ocultar-control');
-    }
-    
+    } else if (user.text === "empleado" || user.text === "administrador") {
+        document.getElementById("foto_group").classList.remove('ocultar-control');
+        document.getElementById("doc_identidad_group").classList.remove('ocultar-control');
+        document.getElementById("contrasena_us_group").classList.remove('ocultar-control');
+        document.getElementById("confirmacion_group").classList.remove('ocultar-control');
+        document.getElementById("fechaNac_group").classList.add('ocultar-control');
+        document.getElementById("estado_group").classList.remove('ocultar-control');
+        document.getElementById("salario_group").classList.remove('ocultar-control');
+    }    
 }
