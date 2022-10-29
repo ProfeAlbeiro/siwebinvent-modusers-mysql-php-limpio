@@ -58,6 +58,7 @@ main {
 
 #data-tables {	
 	border: 1px solid #CCC;
+	font-size: 0.8em;
 }
 
 #data-tables td,
@@ -247,32 +248,7 @@ footer p{
 	.titulo-contenido h5{	
 		font-size: 1.2em;
 	}
-	/* DataTables.js */
-	#data-tables {
-		margin-top: 10px;
-	}	
-
-	#data-tables td,
-	#data-tables th {		
-		text-align: left !important;
-	}
-	#data-tables tbody td a {
-		display: initial;
-		padding: 6px;
-		border-radius: 4px;
-		margin-top: 5px;
-	}
-
-	#data-tables tbody td a.tabla-edit {
-		color: #EEE;
-		background: #2A5159;
-	}
-
-	#data-tables tbody td a.tabla-delete {
-		color: #EEE;
-		background: #D34826;
-		margin-left: 5px;		
-	}	
+	/* Navegador */
 	nav .logo.row {
 		height: 70px;
 	}
@@ -307,5 +283,38 @@ footer p{
 	}	
 	footer .pie-izq{
 		display: none!important;
+	}	
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* ------------------------------ IV. RESPONSIVE DESIGN -------------------------------- */
+/* ------------------------------------- CELULARES ------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {	
+	/* DataTables.js */
+	#data-tables {
+		margin-top: 10px;
+	}
+	#data-tables td,
+	#data-tables th {		
+		text-align: left !important;
+	}
+	#data-tables tbody td a {
+		display: initial;
+		padding: 6px;
+		border-radius: 4px;
+		margin-top: 5px;
+	}
+
+	#data-tables tbody td a.tabla-edit {
+		color: #EEE;
+		background: #2A5159;
+	}
+
+	#data-tables tbody td a.tabla-delete {
+		color: #EEE;
+		background: #D34826;
+		margin-left: 5px;		
 	}	
 }

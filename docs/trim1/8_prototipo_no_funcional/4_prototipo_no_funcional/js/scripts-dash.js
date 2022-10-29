@@ -46,7 +46,7 @@ $(document).ready(function () {
 const navega = document.querySelectorAll(".ocul-navbar");
 const panel = document.querySelectorAll(".ocul-panel");
 const capturaId = document.querySelectorAll(".captura-id");
-const capturaEnfoque = document.querySelectorAll(".class-perfil");
+// const capturaEnfoque = document.querySelectorAll(".class-perfil");
 
 // Oculta Barra Navegación
 navega.forEach(nav => {    
