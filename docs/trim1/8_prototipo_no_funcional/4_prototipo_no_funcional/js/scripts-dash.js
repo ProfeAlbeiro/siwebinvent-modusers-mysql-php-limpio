@@ -1,4 +1,3 @@
-window.onload = perfilar();
 /* -------------------------------------------------------------------------------- */
 /* DATATABLES: FILTROS EN TABLA --------------------------------------------------- */
 /* -------------------------------------------------------------------------------- */
@@ -47,6 +46,7 @@ $(document).ready(function () {
 const navega = document.querySelectorAll(".ocul-navbar");
 const panel = document.querySelectorAll(".ocul-panel");
 const capturaId = document.querySelectorAll(".captura-id");
+const capturaEnfoque = document.querySelectorAll(".class-perfil");
 
 // Oculta Barra Navegación
 navega.forEach(nav => {    
@@ -60,7 +60,18 @@ panel.forEach(aside => {
 capturaId.forEach(captura => {    
     captura.addEventListener("click", capturaIdMet);
 });
+// Prueba Enfoque
+capturaEnfoque.forEach(captura1 => {
+    captura1.addEventListener("click", probarEnfocar);
+});
+function probarEnfocar() {
+    alert("toy aquí");
+}
+/* -------------------------------------------------------------------------------- */
+/* FUNCIONES ---------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------- */
 
+// Llama las demás funciones
 function capturaIdMet() {
     id = event.target.getAttribute("id");
     if (id === "btn-menu-lateral") {
@@ -73,10 +84,10 @@ function capturaIdMet() {
             icon: "success",
             button: "Aceptar",
         })
-            .then((value) => {            
-            // document.formUserCreate.submit();            
-            window.location = '../1_users/user_read.html';
-        });
+            .then((value) => {
+                // document.formUserCreate.submit();            
+                window.location = '../1_users/user_read.html';
+            });
     } else if (id === "submit-user-create-cancel") {
         event.preventDefault();
         swal({
@@ -98,9 +109,9 @@ function capturaIdMet() {
             button: "Aceptar",
         })
             .then((value) => {
-            // document.formUserCreate.submit();            
-            window.location = '../1_users/user_read.html';
-        });
+                // document.formUserCreate.submit();            
+                window.location = '../1_users/user_read.html';
+            });
     } else if (id === "submit-user-update-cancel") {
         event.preventDefault();
         swal({
@@ -118,11 +129,6 @@ function capturaIdMet() {
     //     perfilar();
     // }
 }
-
-/* -------------------------------------------------------------------------------- */
-/* FUNCIONES ---------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------------- */
-
 // Ocultar Barra de Navegación
 function ocultaNav() {
     var item1 = document.getElementById("panel-lateral");
@@ -177,11 +183,12 @@ function deleteUser() {
 }
 
 // Crear Usuario: Controles según perfil
-function perfilar() {
+function perfilar() {    
+    // id = event.target.getAttribute("id");
+    // alert(id);
+    /*
     let user = document.getElementById("perfil").value;
-    let hola1 = document.getElementById("perfil").focus();
-    var focusedElement = document.activeElement;    
-    alert(focusedElement.id);
+    console.log(user);
     if (user === "usuario") {
         document.getElementById("doc_identidad_group").classList.add('ocultar-control');
         document.getElementById("contrasena_us_group").classList.add('ocultar-control');
@@ -200,4 +207,5 @@ function perfilar() {
         document.getElementById("fechaNac_group").classList.remove('ocultar-control');
         document.getElementById("estado_group").classList.remove('ocultar-control');
     }
+    */
 }
