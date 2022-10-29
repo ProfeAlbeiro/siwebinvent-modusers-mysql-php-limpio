@@ -74,7 +74,7 @@ main {
 }
 
 #data-tables tr:nth-child(even) {
-	background-color: #DDD;
+	background-color: #CCC;
 }
 
 #data-tables .tabla-acciones {
