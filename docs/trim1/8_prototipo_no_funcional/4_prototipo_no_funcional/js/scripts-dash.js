@@ -1,3 +1,4 @@
+window.onload = perfilar();
 
 /* -------------------------------------------------------------------------------- */
 /* DATATABLES: FILTROS EN TABLA --------------------------------------------------- */
@@ -63,7 +64,8 @@ capturaId.forEach(captura => {
 });
 
 function capturaIdMet() {
-    id = event.target.getAttribute("id");     
+    id = event.target.getAttribute("id");    
+    // enfoque = id.addEventListener("focus", perfilar);
     if (id === "btn-menu-lateral") {
         btnMenuLateral();
     } else if (id === "submit-user-create") {
@@ -114,7 +116,7 @@ function capturaIdMet() {
                 // document.formRegister.reset();
                 window.location = 'user_read.html';
             });
-    } else if (id === "perfil") {
+    } else if (id === "perfil") {        
         perfilar();
     }
 }
@@ -182,9 +184,17 @@ function perfilar() {
     if (user === "usuario") {
         document.getElementById("doc_identidad_group").classList.add('ocultar-control');
         document.getElementById("contrasena_us_group").classList.add('ocultar-control');
+        document.getElementById("foto_group").classList.add('ocultar-control');
+        document.getElementById("confirmacion_group").classList.add('ocultar-control');
+        document.getElementById("fechaNac_group").classList.add('ocultar-control');
+        document.getElementById("estado_group").classList.add('ocultar-control');
     } else {
         document.getElementById("doc_identidad_group").classList.remove('ocultar-control');
         document.getElementById("contrasena_us_group").classList.remove('ocultar-control');
+        document.getElementById("foto_group").classList.remove('ocultar-control');
+        document.getElementById("confirmacion_group").classList.remove('ocultar-control');
+        document.getElementById("fechaNac_group").classList.remove('ocultar-control');
+        document.getElementById("estado_group").classList.remove('ocultar-control');
     }
 }
 
