@@ -41,13 +41,9 @@
 
         <!-- Contenido -->
         <div class="contenido row bg-light p-2">
-            <div class="col p-0 bg-light d-flex align-items-center">
+            <div class="col p-0 bg-light">
                 <form id="formUserCreate" name="formUserCreate" class="card p-3 bg-dark text-white d-lg-flex justify-content-center w-100 border rounded p-2" action="user_read.html" method="post">
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="foto">Foto</label>
-                            <input type="file" class="form-control p-1" id="foto" placeholder="Apellidos">
-                        </div>
                         <div class="form-group col-md-6">
                             <label for="perfil_usuario">Perfil</label>
                             <select class="form-control" id="perfil">
@@ -57,9 +53,11 @@
                                 <option>empleado</option>
                                 <option>administrador</option>
                             </select>
-                        </div>                        
-                    </div>
-                    <div class="form-row">
+                        </div>
+                        <div id="foto_group" class="form-group col-md-6">
+                            <label for="foto">Foto</label>
+                            <input type="file" class="form-control p-1" id="foto" placeholder="Apellidos">
+                        </div>
                         <div class="form-group col-md-6">
                             <label for="nombres">Nombres</label>
                             <input type="text" class="form-control" id="nombres" placeholder="Nombres">
@@ -68,8 +66,6 @@
                             <label for="apellidos">Apellidos</label>
                             <input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
                         </div>
-                    </div>
-                    <div class="form-row">                        
                         <div class="form-group col-md-6">
                             <label for="correo">Correo</label>
                             <input type="email" class="form-control" id="correo" placeholder="usuario@correo.com">
@@ -78,7 +74,7 @@
                             <label for="doc_identidad">Documento de Identidad</label>
                             <input type="text" class="form-control" id="doc_identidad" placeholder="123456789">
                         </div>
-                        <div class="form-group col-md-6">
+                        <div id="contrasena_us_group" class="form-group col-md-6">
                             <label for="contrasena_us">Contraseña</label>
                             <input type="password" class="form-control" id="contrasena_us" placeholder="Entre 5 y 8 caracteres">
                         </div>

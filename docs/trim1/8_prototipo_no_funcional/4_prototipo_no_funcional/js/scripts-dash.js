@@ -181,8 +181,10 @@ function perfilar() {
     let user = document.getElementById("perfil").value;
     if (user === "usuario") {
         document.getElementById("doc_identidad_group").classList.add('ocultar-control');
+        document.getElementById("contrasena_us_group").classList.add('ocultar-control');
     } else {
         document.getElementById("doc_identidad_group").classList.remove('ocultar-control');
+        document.getElementById("contrasena_us_group").classList.remove('ocultar-control');
     }
 }
 
