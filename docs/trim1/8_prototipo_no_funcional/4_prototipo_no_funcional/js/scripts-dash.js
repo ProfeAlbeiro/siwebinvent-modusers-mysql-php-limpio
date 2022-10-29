@@ -62,11 +62,9 @@ capturaId.forEach(captura => {
 });
 // Prueba Enfoque
 capturaEnfoque.forEach(captura1 => {
-    captura1.addEventListener("click", probarEnfocar);
+    captura1.addEventListener("change", perfilar);
 });
-function probarEnfocar() {
-    alert("toy aquí");
-}
+
 /* -------------------------------------------------------------------------------- */
 /* FUNCIONES ---------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------------- */
@@ -124,10 +122,7 @@ function capturaIdMet() {
                 // document.formRegister.reset();
                 window.location = 'user_read.html';
             });
-    }
-    // else if (id === "perfil") {        
-    //     perfilar();
-    // }
+    }    
 }
 // Ocultar Barra de Navegación
 function ocultaNav() {
@@ -183,29 +178,25 @@ function deleteUser() {
 }
 
 // Crear Usuario: Controles según perfil
-function perfilar() {    
-    // id = event.target.getAttribute("id");
-    // alert(id);
-    /*
-    let user = document.getElementById("perfil").value;
-    console.log(user);
-    if (user === "usuario") {
+function perfilar() {
+    // let user = "usuario";
+    let select = document.getElementById('perfil');
+    let user = this.options[select.selectedIndex];    
+    
+    if (user.text === "usuario") {
+        document.getElementById("foto_group").classList.add('ocultar-control');
         document.getElementById("doc_identidad_group").classList.add('ocultar-control');
         document.getElementById("contrasena_us_group").classList.add('ocultar-control');
-        document.getElementById("foto_group").classList.add('ocultar-control');
         document.getElementById("confirmacion_group").classList.add('ocultar-control');
         document.getElementById("fechaNac_group").classList.add('ocultar-control');
         document.getElementById("estado_group").classList.add('ocultar-control');
-    } else if (user === "cliente") {
-        alert('Hola Mundo');
-    }
-    else {
+    } else {
+        document.getElementById("foto_group").classList.remove('ocultar-control');
         document.getElementById("doc_identidad_group").classList.remove('ocultar-control');
         document.getElementById("contrasena_us_group").classList.remove('ocultar-control');
-        document.getElementById("foto_group").classList.remove('ocultar-control');
         document.getElementById("confirmacion_group").classList.remove('ocultar-control');
         document.getElementById("fechaNac_group").classList.remove('ocultar-control');
         document.getElementById("estado_group").classList.remove('ocultar-control');
     }
-    */
+    
 }
