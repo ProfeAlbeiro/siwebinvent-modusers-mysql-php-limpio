@@ -1,3 +1,4 @@
+window.onload = perfilar();
 /* -------------------------------------------------------------------------------- */
 /* DATATABLES: FILTROS EN TABLA --------------------------------------------------- */
 /* -------------------------------------------------------------------------------- */
@@ -40,7 +41,6 @@ $(document).ready(function () {
     });
 });
 
-
 /* -------------------------------------------------------------------------------- */
 /* DOM: CAPTURADOR DE ID Y CLICK EN EL DOM (Clases) ------------------------------- */
 /* -------------------------------------------------------------------------------- */
@@ -57,8 +57,8 @@ panel.forEach(aside => {
     aside.addEventListener("click", ocultaPanel);    
 });
 // Captura el Id
-capturaId.forEach(captura => {
-    captura.addEventListener("click", capturaIdMet);    
+capturaId.forEach(captura => {    
+    captura.addEventListener("click", capturaIdMet);
 });
 
 function capturaIdMet() {
@@ -113,9 +113,10 @@ function capturaIdMet() {
                 // document.formRegister.reset();
                 window.location = 'user_read.html';
             });
-    } else if (id === "perfil") {        
-        perfilar();
     }
+    // else if (id === "perfil") {        
+    //     perfilar();
+    // }
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -176,14 +177,11 @@ function deleteUser() {
 }
 
 // Crear Usuario: Controles según perfil
-function capturarEnfoque() {
-    alert('Hola Mundo');
-    // window.onload = function () {
-    //     document.getElementById("perfil").focus();
-    // }
-}
 function perfilar() {
     let user = document.getElementById("perfil").value;
+    let hola1 = document.getElementById("perfil").focus();
+    var focusedElement = document.activeElement;    
+    alert(focusedElement.id);
     if (user === "usuario") {
         document.getElementById("doc_identidad_group").classList.add('ocultar-control');
         document.getElementById("contrasena_us_group").classList.add('ocultar-control');
@@ -191,7 +189,10 @@ function perfilar() {
         document.getElementById("confirmacion_group").classList.add('ocultar-control');
         document.getElementById("fechaNac_group").classList.add('ocultar-control');
         document.getElementById("estado_group").classList.add('ocultar-control');
-    } else {
+    } else if (user === "cliente") {
+        alert('Hola Mundo');
+    }
+    else {
         document.getElementById("doc_identidad_group").classList.remove('ocultar-control');
         document.getElementById("contrasena_us_group").classList.remove('ocultar-control');
         document.getElementById("foto_group").classList.remove('ocultar-control');
@@ -200,4 +201,3 @@ function perfilar() {
         document.getElementById("estado_group").classList.remove('ocultar-control');
     }
 }
-
