@@ -114,6 +114,8 @@ function capturaIdMet() {
                 // document.formRegister.reset();
                 window.location = 'user_read.html';
             });
+    } else if (id === "perfil") {
+        perfilar();
     }
 }
 
@@ -172,5 +174,15 @@ function deleteUser() {
                 swal("El Usuario se ha convervado");
             }
         });
+}
+
+// Crear Usuario: Controles según perfil
+function perfilar() {
+    let user = document.getElementById("perfil").value;
+    if (user === "usuario") {
+        document.getElementById("doc_identidad_group").classList.add('ocultar-control');
+    } else {
+        document.getElementById("doc_identidad_group").classList.remove('ocultar-control');
+    }
 }
 

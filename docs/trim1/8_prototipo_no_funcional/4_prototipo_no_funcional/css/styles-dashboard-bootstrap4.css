@@ -48,6 +48,9 @@ main {
 	transition: all 200ms linear !important;
 	height: auto;
 }
+.ocultar-control{
+	display: none;
+}
 
 /* ------------------------------------------------------------------------------------- */
 /* DATATABLES.JS: FILTROS DE TABLA ----------------------------------------------------- */
