@@ -394,7 +394,19 @@ function validarUserCreate() {
                     .then((value) => {
                         document.getElementById('user_salario').focus();
                     });
-            }            
+            }
+            // Salario: Entre 1500000 y 5000000
+            else if (form.checkValidity() === false && (userSalario < 1500000 || userSalario > 5000000)) {
+                swal({
+                    title: "Verifique el campo Salario",
+                    text: "El Salario debe estar entre 1500000 y 5000000",
+                    icon: "error",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        document.getElementById('user_salario').focus();
+                    });
+            }    
             // Validación Completa: Usuario creado correctamente
             else {                
                 swal({
