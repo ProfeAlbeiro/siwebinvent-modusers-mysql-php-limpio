@@ -277,7 +277,7 @@ footer p{
 	section main.col-12{
 		position: absolute;
 		z-index: -1;
-		height: 74%;
+		min-height: 74%;
 		padding: 100px;
 	}
 	footer.row{
