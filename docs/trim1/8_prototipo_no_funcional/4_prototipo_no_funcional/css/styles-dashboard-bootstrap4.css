@@ -213,7 +213,7 @@ main iframe{
 .titulo-contenido{
 	background: #2D394B;
 	color: #FFF;
-	height: 10vh;	
+	min-height: 10vh;	
 }
 .titulo-contenido h5{	
 	font-size: 1.5em;
