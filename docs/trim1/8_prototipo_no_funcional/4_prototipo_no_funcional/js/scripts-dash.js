@@ -143,12 +143,16 @@ function validarUserCreate() {
     let userApellidos = document.getElementById('user_apellidos').value;
     let userFoto = document.getElementById('user_foto').value;
     let userDocIdent = document.getElementById('user_doc_identidad').value;
+    let userContrasena = document.getElementById('user_contrasena').value;
+    let userConfirmacion = document.getElementById('user_confirmacion').value;
+    let userFechaNac = document.getElementById('user_fecha_nac').value;
+    let userEstado = document.getElementById('user_estado').value;
     let forms = document.getElementsByClassName('needs-validation');
     let validation = Array.prototype.filter.call(forms, function (form) {
-        form.addEventListener('submit', function (event) {            
+        form.addEventListener('submit', function (event) { 
+            event.preventDefault();
             // Foto: No vacío
-            if (form.checkValidity() === false && userFoto == "" && (userPerfil == "CLIENTE" || userPerfil == "EMPLEADO" || userPerfil == "ADMINISTRADOR")) {
-                event.preventDefault();
+            if (form.checkValidity() === false && userFoto == "" && (userPerfil == "CLIENTE" || userPerfil == "EMPLEADO" || userPerfil == "ADMINISTRADOR")) {                
                 swal({
                     title: "Verifique el campo Foto",
                     text: "La Foto NO puede estar vacíos",
@@ -160,8 +164,7 @@ function validarUserCreate() {
                     });
             }
             // Nombres: No vacío
-            else if (form.checkValidity() === false && userNombres === "") {
-                event.preventDefault();
+            else if (form.checkValidity() === false && userNombres === "") {                
                 swal({
                     title: "Verifique el campo Nombres",
                     text: "Los Nombres NO pueden estar vacíos",
@@ -173,8 +176,7 @@ function validarUserCreate() {
                     });          
             }
             // Nombres: Datos Alfabéticos
-            else if (form.checkValidity() === false && !patronTexto.test(userNombres)) {
-                event.preventDefault();
+            else if (form.checkValidity() === false && !patronTexto.test(userNombres)) {                
                 swal({
                     title: "Verifique el campo Nombres",
                     text: "Los Nombres NO pueden contener números o caracteres especiales",
@@ -187,7 +189,6 @@ function validarUserCreate() {
             }
             // Nombre: Entre 2 y 5 caracteres
             else if (form.checkValidity() === false && (userNombres.length < 2 || userNombres.length > 50)) {
-                event.preventDefault();
                 swal({
                     title: "Verifique el campo Nombres",
                     text: "Los Nombres deben contener entre 2 y 50 caracteres",
@@ -200,7 +201,6 @@ function validarUserCreate() {
             }
             // Apellidos: No vacío
             else if (form.checkValidity() === false && userApellidos === "") {
-                event.preventDefault();
                 swal({
                     title: "Verifique el campo Apellidos",
                     text: "Los Apellidos NO pueden estar vacíos",
@@ -213,7 +213,6 @@ function validarUserCreate() {
             }
             // Apellidos: Datos Alfabéticos
             else if (form.checkValidity() === false && !patronTexto.test(userApellidos)) {
-                event.preventDefault();
                 swal({
                     title: "Verifique el campo Apellidos",
                     text: "Los Apellidos NO pueden contener números o caracteres especiales",
@@ -226,7 +225,6 @@ function validarUserCreate() {
             }
             // Apellidos: Entre 2 y 5 caracteres
             else if (form.checkValidity() === false && (userApellidos.length < 2 || userApellidos.length > 50)) {
-                event.preventDefault();
                 swal({
                     title: "Verifique el campo Apellidos",
                     text: "Los Apellidos deben contener entre 2 y 50 caracteres",
@@ -239,7 +237,6 @@ function validarUserCreate() {
             }
             // Correo: No vacío
             else if (userCorreo === "") {
-                event.preventDefault();
                 swal({
                     title: "Verifique el campo Correo",
                     text: "El Correo NO puede estar vacío",
@@ -252,7 +249,6 @@ function validarUserCreate() {
             }
             // Correo: Correo válido (@ y .red)
             else if (!patronCorreo.test(userCorreo)) {
-                event.preventDefault();
                 swal({
                     title: "Verifique el campo Correo",
                     text: "El Correo NO es un correo electrónico válido",
@@ -265,7 +261,6 @@ function validarUserCreate() {
             }
             // Identificación: No vacío
             else if (form.checkValidity() === false && userDocIdent === "") {
-                event.preventDefault();
                 swal({
                     title: "Verifique el campo Documento de Identidad",
                     text: "La Identificación NO pueden estar vacía",
@@ -277,34 +272,117 @@ function validarUserCreate() {
                     });
             }
             // Identificación: Datos Numéricos
-            else if (form.checkValidity() === false && !patronTexto.test(userNombres)) {
-                event.preventDefault();
+            else if (form.checkValidity() === false && isNaN(userDocIdent)) {
                 swal({
-                    title: "Verifique el campo Nombres",
-                    text: "Los Nombres NO pueden contener números o caracteres especiales",
+                    title: "Verifique el campo Documento de Identidad",
+                    text: "La Identifación NO puede contener texto",
                     icon: "error",
                     button: "Aceptar",
                 })
                     .then((value) => {
-                        document.getElementById('user_nombres').focus();
+                        document.getElementById('user_doc_identidad').focus();
                     });
             }
-            // Identificación: Entre 5 y 20 caracteres
-            else if (form.checkValidity() === false && (userNombres.length < 2 || userNombres.length > 50)) {
-                event.preventDefault();
+            // Identificación: Entre 6 y 13 caracteres
+            else if (form.checkValidity() === false && (userDocIdent.length < 6 || userDocIdent.length > 13)) {
                 swal({
-                    title: "Verifique el campo Nombres",
-                    text: "Los Nombres deben contener entre 2 y 50 caracteres",
+                    title: "Verifique el campo Documento de Identidad",
+                    text: "La Identificación debe contener entre 6 y 13 caracteres",
                     icon: "error",
                     button: "Aceptar",
                 })
                     .then((value) => {
-                        document.getElementById('user_nombres').focus();
+                        document.getElementById('user_doc_identidad').focus();
                     });
-            }    
+            }
+            // Contraseña: No vacío
+            else if (form.checkValidity() === false && userContrasena === "") {
+                swal({
+                    title: "Verifique el campo Contraseña",
+                    text: "La Contraseña NO puede estar vacía",
+                    icon: "error",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        document.getElementById('user_contrasena').focus();
+                    });
+            }            
+            // Contraseña: Entre 5 y 8 caracteres
+            else if (form.checkValidity() === false && (userContrasena.length < 5 || userContrasena.length > 8)) {
+                swal({
+                    title: "Verifique el campo Contraseña",
+                    text: "La Contraseña debe tener entre 5 y 8 caracteres",
+                    icon: "error",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        document.getElementById('user_contrasena').focus();
+                    });
+            } 
+            // Confirmación: No vacío
+            else if (form.checkValidity() === false && userConfirmacion === "") {
+                swal({
+                    title: "Verifique el campo Confirmación Contraseña",
+                    text: "La Confirmación de Contraseña NO puede estar vacía",
+                    icon: "error",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        document.getElementById('user_confirmacion').focus();
+                    });
+            }
+            // Confirmación: Entre 5 y 8 caracteres
+            else if (form.checkValidity() === false && (userConfirmacion.length < 5 || userConfirmacion.length > 8)) {
+                swal({
+                    title: "Verifique el campo Confirmación Contraseña",
+                    text: "La Confirmación de Contraseña debe tener entre 5 y 8 caracteres",
+                    icon: "error",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        document.getElementById('user_confirmacion').focus();
+                    });
+            }
+            // Comprobar si Contraseña y Confirmación son iguales
+            else if (form.checkValidity() === false && (userContrasena !== userConfirmacion)) { 
+                swal({
+                    title: "Verifique los campos Contraseña y Confirmación",
+                    text: "La Contraseña y la Confirmación debe ser iguales",
+                    icon: "error",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        document.getElementById('user_contrasena').value = "";
+                        document.getElementById('user_confirmacion').value = "";
+                        document.getElementById('user_contrasena').focus();
+                    });
+            }
+            // Fecha Nacimiento: No vacío
+            else if (form.checkValidity() === false && userFechaNac === "") {
+                swal({
+                    title: "Verifique el campo Fecha de Nacimiento",
+                    text: "La Fecha de Nacimiento NO puede estar vacía",
+                    icon: "error",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        document.getElementById('user_fecha_nac').focus();
+                    });
+            }
+            // Estado: No vacío
+            else if (form.checkValidity() === false && userEstado === "") {
+                swal({
+                    title: "Verifique el campo Estado",
+                    text: "El Estado NO puede estar vacío",
+                    icon: "error",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        document.getElementById('user_estado').focus();
+                    });
+            }
             // Validación Completa: Usuario creado correctamente
-            else {
-                event.preventDefault();
+            else {                
                 swal({
                     title: userPerfil + " creado correctamente!",
                     text: "Le llegará al " + userPerfil + " un Correo Electrónico para validar el Registro",
@@ -318,97 +396,7 @@ function validarUserCreate() {
             }
             form.classList.add('was-validated');            
         }, false);
-    });
-    
-    /*
-    // Captura de Datos
-    nombres = document.getElementById('nombres').value;
-    apellidos = document.getElementById('apellidos-reg').value;
-    correo = document.getElementById('correo-reg').value;
-    pass = document.getElementById('pass-reg').value;
-    confirm = document.getElementById('conf-pass-reg').value;  
-    
-       
-    // Validación de contraseña
-    else if (pass === "") {
-        event.preventDefault();
-        swal({
-            title: "Verifique el campo Contraseña",
-            text: "La Contraseña NO puede estar vacía",
-            icon: "error",
-            button: "Aceptar",
-        })
-            .then((value) => {
-                document.getElementById('pass-reg').focus();
-            });
-    }
-    else if (pass.length < 5 || pass.length > 8) {
-        event.preventDefault();
-        swal({
-            title: "Verifique el campo Contraseña",
-            text: "La Contraseña debe tener entre 5 y 8 caracteres",
-            icon: "error",
-            button: "Aceptar",
-        })
-            .then((value) => {
-                document.getElementById('pass-reg').focus();
-            });
-    }
-    // Validación de confirmación
-    else if (confirm === "") {
-        event.preventDefault();
-        swal({
-            title: "Verifique el campo Confirmación Contraseña",
-            text: "La Confirmación de Contraseña NO puede estar vacía",
-            icon: "error",
-            button: "Aceptar",
-        })
-            .then((value) => {
-                document.getElementById('conf-pass-reg').focus();
-            });
-    }
-    else if (confirm.length < 5 || confirm.length > 8) {
-        event.preventDefault();
-        swal({
-            title: "Verifique el campo Confirmación Contraseña",
-            text: "La Confirmañción de Contraseña debe tener entre 5 y 8 caracteres",
-            icon: "error",
-            button: "Aceptar",
-        })
-            .then((value) => {
-                document.getElementById('conf-pass-reg').focus();
-            });
-    }
-    // Comprobación de igualdad entre contraseñas
-    else if (pass !== confirm) {
-        event.preventDefault();
-        swal({
-            title: "Verifique los campos Contraseña y Confirmación",
-            text: "La Contraseña y la Confirmación debe ser iguales",
-            icon: "error",
-            button: "Aceptar",
-        })
-            .then((value) => {
-                document.getElementById('pass-reg').value = "";
-                document.getElementById('conf-pass-reg').value = "";
-                document.getElementById('pass-reg').focus();
-            });
-    }
-    // Se crea el Usuario
-    else {
-        event.preventDefault();
-        swal({
-            title: "Usuario Creado correctamente!",
-            text: "Le llegará al Usuario un Correo Electrónico para validar el Registro",
-            icon: "success",
-            button: "Aceptar",
-        })
-            .then((value) => {
-                // document.formUserCreate.submit();            
-                window.location = '../1_users/user_read.html';
-            });
-    }
-    */
+    });    
 }
 
 // Ocultar Panel Lateral: Celular
