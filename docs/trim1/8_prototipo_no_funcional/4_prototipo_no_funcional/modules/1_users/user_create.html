@@ -42,11 +42,12 @@
         <!-- Contenido -->
         <div class="contenido row bg-light p-2">
             <div class="col p-0 bg-light">
-                <form id="formUserCreate" name="formUserCreate" class="card p-3 bg-dark text-white d-lg-flex justify-content-center w-100 border rounded p-2" action="" method="post">
+                <form id="formUserCreate" name="formUserCreate" class="card p-3 bg-dark text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="" method="post" novalidate>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="perfil_usuario">Perfil</label>
-                            <select class="form-control class-perfil" id="perfil">                                
+                            <label for="user_perfil">Perfil</label>
+                            <select class="form-control class-perfil" id="user_perfil" 
+							title="Ingrese Un Perfil Válido" required>                                
                                 <option>usuario</option>
                                 <option>cliente</option>
                                 <option>empleado</option>
@@ -54,47 +55,50 @@
                             </select>
                         </div>
                         <div id="foto_group" class="form-group col-md-6 ocultar-control">
-                            <label for="foto">Foto</label>
-                            <input type="file" class="form-control p-1" id="foto" placeholder="Apellidos">
+                            <label for="user_foto">Foto</label>
+                            <input type="file" class="form-control p-1" id="user_foto">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="nombres">Nombres</label>
-                            <input type="text" class="form-control" id="nombres" placeholder="Nombres">
+                            <label for="user_nombres">Nombres</label>
+                            <input type="text" class="form-control" id="user_nombres" placeholder="Nombres" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
+							title="Ingrese Nombre(s) Válido(s)" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="apellidos">Apellidos</label>
-                            <input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
+                            <label for="user_apellidos">Apellidos</label>
+                            <input type="text" class="form-control" id="user_apellidos" placeholder="Apellidos" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
+							title="Ingrese Nombre(s) Válido(s)" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="correo">Correo</label>
-                            <input type="email" class="form-control" id="correo" placeholder="usuario@correo.com">
+                            <label for="user_correo">Correo</label>
+                            <input type="email" class="form-control" id="user_correo" placeholder="usuario@correo.com" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"
+							title="Ingrese un correo válido" required>
                         </div>
                         <div id="doc_identidad_group" class="form-group col-md-6 ocultar-control">
-                            <label for="doc_identidad">Documento de Identidad</label>
-                            <input type="text" class="form-control" id="doc_identidad" placeholder="123456789">
+                            <label for="user_doc_identidad">Documento de Identidad</label>
+                            <input type="number" class="form-control" id="user_doc_identidad" placeholder="123456789" min="99999" max="999999999999" title="Ingrese un documento válido">
                         </div>
                         <div id="contrasena_us_group" class="form-group col-md-6 ocultar-control">
-                            <label for="contrasena_us">Contraseña</label>
-                            <input type="password" class="form-control" id="contrasena_us" placeholder="Entre 5 y 8 caracteres">
+                            <label for="user_contrasena">Contraseña</label>
+                            <input type="password" class="form-control" id="user_contrasena" placeholder="Entre 5 y 8 caracteres">
                         </div>
                         <div id="confirmacion_group" class="form-group col-md-6 ocultar-control">
-                            <label for="confirmacion">Confirmación</label>
-                            <input type="password" class="form-control" id="confirmacion" placeholder="Confirmar contraseña">
+                            <label for="user_confirmacion">Confirmación</label>
+                            <input type="password" class="form-control" id="user_confirmacion" placeholder="Confirmar contraseña">
                         </div>
                         <div id="fechaNac_group" class="form-group col-md-6 ocultar-control">
-                            <label for="fechaNac">Fecha Nacimiento</label>
-                            <input type="date" class="form-control" id="fechaNac" placeholder="Nombres">
+                            <label for="user_fecha_nac">Fecha Nacimiento</label>
+                            <input type="date" class="form-control" id="user_fecha_nac" placeholder="Fecha de Nacimiento">
                         </div>                        
                         <div id="estado_group" class="form-group col-md-6 ocultar-control">
-                            <label for="estado">Estado</label>
-                            <select class="form-control" id="estado">
-                                <option>activo</option>
+                            <label for="user_estado">Estado</label>
+                            <select class="form-control" id="user_estado">
                                 <option>inactivo</option>
+                                <option>activo</option>
                             </select>
                         </div>
                         <div id="salario_group" class="form-group col-md-6 ocultar-control">
-                            <label for="salario">Salario</label>
-                            <input type="number" class="form-control text-right" id="salario" placeholder="salario" value="1300000">
+                            <label for="user_salario">Salario</label>
+                            <input type="number" class="form-control text-right" id="user_salario" placeholder="1300000">
                         </div>
                     </div>
                     <input type="submit" id="submit-user-create" class="btn btn-info mb-2" value="Enviar">

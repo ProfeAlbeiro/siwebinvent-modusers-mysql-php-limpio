@@ -60,7 +60,7 @@ panel.forEach(aside => {
 capturaId.forEach(captura => {    
     captura.addEventListener("click", capturaIdMet);
 });
-// Prueba Enfoque
+// Captura Perfil de Usuario
 capturaEnfoque.forEach(captura1 => {
     captura1.addEventListener("change", perfilar);
 });
@@ -75,7 +75,7 @@ function capturaIdMet() {
     if (id === "btn-menu-lateral") {
         btnMenuLateral();
     } else if (id === "submit-user-create") {
-        validarUserCreate();        
+        validarUserCreate();
     } else if (id === "submit-user-create-cancel") {
         event.preventDefault();
         swal({
@@ -134,121 +134,201 @@ function btnMenuLateral() {
     document.getElementById("area_principal").classList.toggle('ampliar-principal');    
 }
 
-function validarUserCreate() {
+function validarUserCreate() {    
+    let patronCorreo = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;    
+    let patronTexto = /^[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]+$/; 
+    let userPerfil = document.getElementById('user_perfil').value.toUpperCase();
+    let userNombres = document.getElementById('user_nombres').value;     
+    let userCorreo = document.getElementById('user_correo').value;
+    let userApellidos = document.getElementById('user_apellidos').value;
+    let userFoto = document.getElementById('user_foto').value;
+    let userDocIdent = document.getElementById('user_doc_identidad').value;
+    let forms = document.getElementsByClassName('needs-validation');
+    let validation = Array.prototype.filter.call(forms, function (form) {
+        form.addEventListener('submit', function (event) {            
+            // Foto: No vacío
+            if (form.checkValidity() === false && userFoto == "" && (userPerfil == "CLIENTE" || userPerfil == "EMPLEADO" || userPerfil == "ADMINISTRADOR")) {
+                event.preventDefault();
+                swal({
+                    title: "Verifique el campo Foto",
+                    text: "La Foto NO puede estar vacíos",
+                    icon: "error",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        document.getElementById('user_foto').focus();
+                    });
+            }
+            // Nombres: No vacío
+            else if (form.checkValidity() === false && userNombres === "") {
+                event.preventDefault();
+                swal({
+                    title: "Verifique el campo Nombres",
+                    text: "Los Nombres NO pueden estar vacíos",
+                    icon: "error",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        document.getElementById('user_nombres').focus();
+                    });          
+            }
+            // Nombres: Datos Alfabéticos
+            else if (form.checkValidity() === false && !patronTexto.test(userNombres)) {
+                event.preventDefault();
+                swal({
+                    title: "Verifique el campo Nombres",
+                    text: "Los Nombres NO pueden contener números o caracteres especiales",
+                    icon: "error",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        document.getElementById('user_nombres').focus();
+                    });
+            }
+            // Nombre: Entre 2 y 5 caracteres
+            else if (form.checkValidity() === false && (userNombres.length < 2 || userNombres.length > 50)) {
+                event.preventDefault();
+                swal({
+                    title: "Verifique el campo Nombres",
+                    text: "Los Nombres deben contener entre 2 y 50 caracteres",
+                    icon: "error",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        document.getElementById('user_nombres').focus();
+                    });
+            }
+            // Apellidos: No vacío
+            else if (form.checkValidity() === false && userApellidos === "") {
+                event.preventDefault();
+                swal({
+                    title: "Verifique el campo Apellidos",
+                    text: "Los Apellidos NO pueden estar vacíos",
+                    icon: "error",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        document.getElementById('user_apellidos').focus();
+                    });
+            }
+            // Apellidos: Datos Alfabéticos
+            else if (form.checkValidity() === false && !patronTexto.test(userApellidos)) {
+                event.preventDefault();
+                swal({
+                    title: "Verifique el campo Apellidos",
+                    text: "Los Apellidos NO pueden contener números o caracteres especiales",
+                    icon: "error",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        document.getElementById('user_apellidos').focus();
+                    });
+            }
+            // Apellidos: Entre 2 y 5 caracteres
+            else if (form.checkValidity() === false && (userApellidos.length < 2 || userApellidos.length > 50)) {
+                event.preventDefault();
+                swal({
+                    title: "Verifique el campo Apellidos",
+                    text: "Los Apellidos deben contener entre 2 y 50 caracteres",
+                    icon: "error",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        document.getElementById('user_apellidos').focus();
+                    });
+            }
+            // Correo: No vacío
+            else if (userCorreo === "") {
+                event.preventDefault();
+                swal({
+                    title: "Verifique el campo Correo",
+                    text: "El Correo NO puede estar vacío",
+                    icon: "error",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        document.getElementById('user_correo').focus();
+                    });
+            }
+            // Correo: Correo válido (@ y .red)
+            else if (!patronCorreo.test(userCorreo)) {
+                event.preventDefault();
+                swal({
+                    title: "Verifique el campo Correo",
+                    text: "El Correo NO es un correo electrónico válido",
+                    icon: "error",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        document.getElementById('user_correo').focus();
+                    });
+            }
+            // Identificación: No vacío
+            else if (form.checkValidity() === false && userDocIdent === "") {
+                event.preventDefault();
+                swal({
+                    title: "Verifique el campo Documento de Identidad",
+                    text: "La Identificación NO pueden estar vacía",
+                    icon: "error",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        document.getElementById('user_doc_identidad').focus();
+                    });
+            }
+            // Identificación: Datos Numéricos
+            else if (form.checkValidity() === false && !patronTexto.test(userNombres)) {
+                event.preventDefault();
+                swal({
+                    title: "Verifique el campo Nombres",
+                    text: "Los Nombres NO pueden contener números o caracteres especiales",
+                    icon: "error",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        document.getElementById('user_nombres').focus();
+                    });
+            }
+            // Identificación: Entre 5 y 20 caracteres
+            else if (form.checkValidity() === false && (userNombres.length < 2 || userNombres.length > 50)) {
+                event.preventDefault();
+                swal({
+                    title: "Verifique el campo Nombres",
+                    text: "Los Nombres deben contener entre 2 y 50 caracteres",
+                    icon: "error",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        document.getElementById('user_nombres').focus();
+                    });
+            }    
+            // Validación Completa: Usuario creado correctamente
+            else {
+                event.preventDefault();
+                swal({
+                    title: userPerfil + " creado correctamente!",
+                    text: "Le llegará al " + userPerfil + " un Correo Electrónico para validar el Registro",
+                    icon: "success",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        // document.formUserCreate.submit();            
+                        window.location = '../1_users/user_read.html';
+                    });
+            }
+            form.classList.add('was-validated');            
+        }, false);
+    });
+    
+    /*
     // Captura de Datos
     nombres = document.getElementById('nombres').value;
-    alert(nombres);
-    event.preventDefault();
-    /*
     apellidos = document.getElementById('apellidos-reg').value;
     correo = document.getElementById('correo-reg').value;
     pass = document.getElementById('pass-reg').value;
-    confirm = document.getElementById('conf-pass-reg').value;
+    confirm = document.getElementById('conf-pass-reg').value;  
     
-    
-    // Expresión Regular de correo electrónico
-    let patron_correo = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
-    // Expresión Regular de Texto
-    let patron_texto = /^[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]+$/;
-    // Validación de nombres
-    if (nombres === "") {
-        event.preventDefault();
-        swal({
-            title: "Verifique el campo Nombres",
-            text: "Los Nombres NO pueden estar vacíos",
-            icon: "error",
-            button: "Aceptar",
-        })
-            .then((value) => {
-                document.getElementById('nombres-reg').focus();
-            });
-    }
-    else if (!patron_texto.test(nombres)) {
-        event.preventDefault();
-        swal({
-            title: "Verifique el campo Nombres",
-            text: "Los Nombres NO pueden contener números o caracteres especiales",
-            icon: "error",
-            button: "Aceptar",
-        })
-            .then((value) => {
-                document.getElementById('nombres-reg').focus();
-            });
-    }
-    else if (nombres.length < 2 || nombres.length > 50) {
-        event.preventDefault();
-        swal({
-            title: "Verifique el campo Nombres",
-            text: "Los Nombres deben contener entre 2 y 50 caracteres",
-            icon: "error",
-            button: "Aceptar",
-        })
-            .then((value) => {
-                document.getElementById('nombres-reg').focus();
-            });
-    }
-    // Validación de Apellidos
-    else if (apellidos === "") {
-        event.preventDefault();
-        swal({
-            title: "Verifique el campo Apellidos",
-            text: "Los Apellidos NO pueden estar vacíos",
-            icon: "error",
-            button: "Aceptar",
-        })
-            .then((value) => {
-                document.getElementById('apellidos-reg').focus();
-            });
-    }
-    else if (!patron_texto.test(apellidos)) {
-        event.preventDefault();
-        swal({
-            title: "Verifique el campo Apellidos",
-            text: "Los Apellidos NO pueden contener números o caracteres especiales",
-            icon: "error",
-            button: "Aceptar",
-        })
-            .then((value) => {
-                document.getElementById('apellidos-reg').focus();
-            });
-    }
-    else if (apellidos.length < 2 || apellidos.length > 50) {
-        event.preventDefault();
-        swal({
-            title: "Verifique el campo Apellidos",
-            text: "Los Apelllidos deben contener entre 2 y 50 caracteres",
-            icon: "error",
-            button: "Aceptar",
-        })
-            .then((value) => {
-                document.getElementById('apellidos-reg').focus();
-            });
-    }
-    // Validación de Correo
-    else if (correo === "") {
-        event.preventDefault();
-        swal({
-            title: "Verifique el campo Correo",
-            text: "El Correo NO puede estar vacío",
-            icon: "error",
-            button: "Aceptar",
-        })
-            .then((value) => {
-                document.getElementById('correo-reg').focus();
-            });
-    }
-    else if (!patron_correo.test(correo)) {
-        event.preventDefault();
-        swal({
-            title: "Verifique el campo Correo",
-            text: "El Correo NO es un correo electrónico válido",
-            icon: "error",
-            button: "Aceptar",
-        })
-            .then((value) => {
-                document.getElementById('correo-reg').focus();
-            });
-    }
+       
     // Validación de contraseña
     else if (pass === "") {
         event.preventDefault();
@@ -366,26 +446,47 @@ function deleteUser() {
 
 // Crear Usuario: Controles según perfil
 function perfilar() {    
-    let select = document.getElementById('perfil');
+    let select = document.getElementById('user_perfil');
     let user = this.options[select.selectedIndex];    
     
     if (user.text === "usuario") {
+        $('#user_foto').removeAttr("required");
+        $('#user_doc_identidad').removeAttr("required");
+        $('#user_contrasena').removeAttr("required");
+        $('#user_confirmacion').removeAttr("required");
+        $('#user_fecha_nac').removeAttr("required");
+        $('#user_estado').removeAttr("required");
+        $('#user_salario').removeAttr("required");
         document.getElementById("foto_group").classList.add('ocultar-control');
         document.getElementById("doc_identidad_group").classList.add('ocultar-control');
         document.getElementById("contrasena_us_group").classList.add('ocultar-control');
         document.getElementById("confirmacion_group").classList.add('ocultar-control');
         document.getElementById("fechaNac_group").classList.add('ocultar-control');
         document.getElementById("estado_group").classList.add('ocultar-control');
-        document.getElementById("salario_group").classList.add('ocultar-control');
+        document.getElementById("salario_group").classList.add('ocultar-control');        
     } else if (user.text === "cliente") {
+        $('#user_foto').prop("required", true);
+        $('#user_doc_identidad').prop("required", true);
+        $('#user_contrasena').prop("required", true);
+        $('#user_confirmacion').prop("required", true);
+        $('#user_fecha_nac').prop("required", true);
+        $('#user_estado').prop("required", true);
+        $('#user_salario').removeAttr("required");
         document.getElementById("foto_group").classList.remove('ocultar-control');
         document.getElementById("doc_identidad_group").classList.remove('ocultar-control');
         document.getElementById("contrasena_us_group").classList.remove('ocultar-control');
         document.getElementById("confirmacion_group").classList.remove('ocultar-control');
         document.getElementById("fechaNac_group").classList.remove('ocultar-control');
         document.getElementById("estado_group").classList.remove('ocultar-control');
-        document.getElementById("salario_group").classList.add('ocultar-control');
+        document.getElementById("salario_group").classList.add('ocultar-control');        
     } else if (user.text === "empleado" || user.text === "administrador") {
+        $('#user_foto').prop("required", true);
+        $('#user_doc_identidad').prop("required", true);
+        $('#user_contrasena').prop("required", true);
+        $('#user_confirmacion').prop("required", true);
+        $('#user_estado').prop("required", true);
+        $('#user_salario').prop("required", true);
+        $('#user_fecha_nac').removeAttr("required");
         document.getElementById("foto_group").classList.remove('ocultar-control');
         document.getElementById("doc_identidad_group").classList.remove('ocultar-control');
         document.getElementById("contrasena_us_group").classList.remove('ocultar-control');
