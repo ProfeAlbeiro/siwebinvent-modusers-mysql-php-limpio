@@ -89,13 +89,13 @@ INSERT INTO USUARIOS VALUES
 (4, 'seller-2', 'Alfonso', 'Camacho', 'alfonso@gmail.com');
 
 INSERT INTO CREDENCIALES VALUES
-('admin-1', 123456, "2022-06-11", sha1('12345'), 1),
-('customer-1', 456789, "2022-07-12", sha1('12345'), 1),
-('seller-1', 987654, "2022-08-13", sha1('12345'), 1),
-('seller-2', 852963, "2022-08-28", sha1('12345'), 0),
-('customer-2', 654321, "2022-08-28", sha1('12345'), 1),
-('customer-3', 333333, "2022-09-15", sha1('12345'), 0),
-('customer-4', 444444, "2022-09-16", sha1('12345'), 0);
+('admin-1', '../../img/usuario.png', 123456, "2022-06-11", sha1('12345'), 1),
+('customer-1', '../../img/usuario.png', 456789, "2022-07-12", sha1('12345'), 1),
+('seller-1', '../../img/usuario.png', 987654, "2022-08-13", sha1('12345'), 1),
+('seller-2', '../../img/usuario.png', 852963, "2022-08-28", sha1('12345'), 0),
+('customer-2', '../../img/usuario.png', 654321, "2022-08-28", sha1('12345'), 1),
+('customer-3', '../../img/usuario.png', 333333, "2022-09-15", sha1('12345'), 0),
+('customer-4', '../../img/usuario.png', 444444, "2022-09-16", sha1('12345'), 0);
 
 INSERT INTO MENSAJES VALUES
 ('person-1', '2022-08-15', 'Solicitud de Información', 'Quisiera saber sobre... '),
