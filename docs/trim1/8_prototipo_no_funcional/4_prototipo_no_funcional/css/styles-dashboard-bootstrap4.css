@@ -208,19 +208,19 @@ main iframe{
 	border: 0;	
 }
 .migas{
-	min-height: 8vh;
+	height: 8vh;
 }
 .titulo-contenido{
 	background: #2D394B;
 	color: #FFF;
-	min-height: 10vh;	
+	height: 10vh;	
 }
 .titulo-contenido h5{	
 	font-size: 1.5em;
 }
 .contenido{
 	height: 82vh;
-	min-height: 82vh;
+	height: 82vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
