@@ -75,17 +75,7 @@ function capturaIdMet() {
     if (id === "btn-menu-lateral") {
         btnMenuLateral();
     } else if (id === "submit-user-create") {
-        event.preventDefault();
-        swal({
-            title: "Usuario Creado correctamente!",
-            text: "Le llegará al Usuario un Correo Electrónico para validar el Registro",
-            icon: "success",
-            button: "Aceptar",
-        })
-            .then((value) => {
-                // document.formUserCreate.submit();            
-                window.location = '../1_users/user_read.html';
-            });
+        validarUserCreate();        
     } else if (id === "submit-user-create-cancel") {
         event.preventDefault();
         swal({
@@ -144,6 +134,203 @@ function btnMenuLateral() {
     document.getElementById("area_principal").classList.toggle('ampliar-principal');    
 }
 
+function validarUserCreate() {
+    // Captura de Datos
+    nombres = document.getElementById('nombres').value;
+    alert(nombres);
+    event.preventDefault();
+    /*
+    apellidos = document.getElementById('apellidos-reg').value;
+    correo = document.getElementById('correo-reg').value;
+    pass = document.getElementById('pass-reg').value;
+    confirm = document.getElementById('conf-pass-reg').value;
+    
+    
+    // Expresión Regular de correo electrónico
+    let patron_correo = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+    // Expresión Regular de Texto
+    let patron_texto = /^[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]+$/;
+    // Validación de nombres
+    if (nombres === "") {
+        event.preventDefault();
+        swal({
+            title: "Verifique el campo Nombres",
+            text: "Los Nombres NO pueden estar vacíos",
+            icon: "error",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                document.getElementById('nombres-reg').focus();
+            });
+    }
+    else if (!patron_texto.test(nombres)) {
+        event.preventDefault();
+        swal({
+            title: "Verifique el campo Nombres",
+            text: "Los Nombres NO pueden contener números o caracteres especiales",
+            icon: "error",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                document.getElementById('nombres-reg').focus();
+            });
+    }
+    else if (nombres.length < 2 || nombres.length > 50) {
+        event.preventDefault();
+        swal({
+            title: "Verifique el campo Nombres",
+            text: "Los Nombres deben contener entre 2 y 50 caracteres",
+            icon: "error",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                document.getElementById('nombres-reg').focus();
+            });
+    }
+    // Validación de Apellidos
+    else if (apellidos === "") {
+        event.preventDefault();
+        swal({
+            title: "Verifique el campo Apellidos",
+            text: "Los Apellidos NO pueden estar vacíos",
+            icon: "error",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                document.getElementById('apellidos-reg').focus();
+            });
+    }
+    else if (!patron_texto.test(apellidos)) {
+        event.preventDefault();
+        swal({
+            title: "Verifique el campo Apellidos",
+            text: "Los Apellidos NO pueden contener números o caracteres especiales",
+            icon: "error",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                document.getElementById('apellidos-reg').focus();
+            });
+    }
+    else if (apellidos.length < 2 || apellidos.length > 50) {
+        event.preventDefault();
+        swal({
+            title: "Verifique el campo Apellidos",
+            text: "Los Apelllidos deben contener entre 2 y 50 caracteres",
+            icon: "error",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                document.getElementById('apellidos-reg').focus();
+            });
+    }
+    // Validación de Correo
+    else if (correo === "") {
+        event.preventDefault();
+        swal({
+            title: "Verifique el campo Correo",
+            text: "El Correo NO puede estar vacío",
+            icon: "error",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                document.getElementById('correo-reg').focus();
+            });
+    }
+    else if (!patron_correo.test(correo)) {
+        event.preventDefault();
+        swal({
+            title: "Verifique el campo Correo",
+            text: "El Correo NO es un correo electrónico válido",
+            icon: "error",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                document.getElementById('correo-reg').focus();
+            });
+    }
+    // Validación de contraseña
+    else if (pass === "") {
+        event.preventDefault();
+        swal({
+            title: "Verifique el campo Contraseña",
+            text: "La Contraseña NO puede estar vacía",
+            icon: "error",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                document.getElementById('pass-reg').focus();
+            });
+    }
+    else if (pass.length < 5 || pass.length > 8) {
+        event.preventDefault();
+        swal({
+            title: "Verifique el campo Contraseña",
+            text: "La Contraseña debe tener entre 5 y 8 caracteres",
+            icon: "error",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                document.getElementById('pass-reg').focus();
+            });
+    }
+    // Validación de confirmación
+    else if (confirm === "") {
+        event.preventDefault();
+        swal({
+            title: "Verifique el campo Confirmación Contraseña",
+            text: "La Confirmación de Contraseña NO puede estar vacía",
+            icon: "error",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                document.getElementById('conf-pass-reg').focus();
+            });
+    }
+    else if (confirm.length < 5 || confirm.length > 8) {
+        event.preventDefault();
+        swal({
+            title: "Verifique el campo Confirmación Contraseña",
+            text: "La Confirmañción de Contraseña debe tener entre 5 y 8 caracteres",
+            icon: "error",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                document.getElementById('conf-pass-reg').focus();
+            });
+    }
+    // Comprobación de igualdad entre contraseñas
+    else if (pass !== confirm) {
+        event.preventDefault();
+        swal({
+            title: "Verifique los campos Contraseña y Confirmación",
+            text: "La Contraseña y la Confirmación debe ser iguales",
+            icon: "error",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                document.getElementById('pass-reg').value = "";
+                document.getElementById('conf-pass-reg').value = "";
+                document.getElementById('pass-reg').focus();
+            });
+    }
+    // Se crea el Usuario
+    else {
+        event.preventDefault();
+        swal({
+            title: "Usuario Creado correctamente!",
+            text: "Le llegará al Usuario un Correo Electrónico para validar el Registro",
+            icon: "success",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                // document.formUserCreate.submit();            
+                window.location = '../1_users/user_read.html';
+            });
+    }
+    */
+}
+
 // Ocultar Panel Lateral: Celular
 function ocultaPanel() {
     var item2 = document.getElementById("navbarSupportedContent");
@@ -178,8 +365,7 @@ function deleteUser() {
 }
 
 // Crear Usuario: Controles según perfil
-function perfilar() {
-    // let user = "usuario";
+function perfilar() {    
     let select = document.getElementById('perfil');
     let user = this.options[select.selectedIndex];    
     
@@ -198,6 +384,7 @@ function perfilar() {
         document.getElementById("confirmacion_group").classList.remove('ocultar-control');
         document.getElementById("fechaNac_group").classList.remove('ocultar-control');
         document.getElementById("estado_group").classList.remove('ocultar-control');
+        document.getElementById("salario_group").classList.add('ocultar-control');
     } else if (user.text === "empleado" || user.text === "administrador") {
         document.getElementById("foto_group").classList.remove('ocultar-control');
         document.getElementById("doc_identidad_group").classList.remove('ocultar-control');

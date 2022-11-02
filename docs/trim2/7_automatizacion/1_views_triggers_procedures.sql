@@ -50,7 +50,7 @@ FROM CATEGORIAS
 INNER JOIN PRODUCTOS
 ON CATEGORIAS.codigo_categoria = PRODUCTOS.codigo_categoria
 GROUP BY PRODUCTOS.codigo_producto
-ORDER BY PRODUCTOS.codigo_producto;
+ORDER BY CATEGORIAS.nombre_categoria ASC;
 
 -- ------------------------------------------------------------------------------------- --
 CREATE VIEW VW_INVENTARIO_VENTAS AS

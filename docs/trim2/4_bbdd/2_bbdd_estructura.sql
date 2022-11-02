@@ -1,8 +1,8 @@
 -- -----------------------------------------------------
--- Schema bbdd_ventas
+-- Estructura BBDD_INVENTARIO
 -- -----------------------------------------------------
-CREATE SCHEMA BBDD_VENTAS DEFAULT CHARACTER SET utf8 ;
-USE BBDD_VENTAS;
+CREATE SCHEMA BBDD_INVENTARIO DEFAULT CHARACTER SET utf8 ;
+USE BBDD_INVENTARIO;
 
 -- -----------------------------------------------------
 -- Tabla ROLES
@@ -37,6 +37,7 @@ CREATE TABLE USUARIOS (
 -- -----------------------------------------------------
 CREATE TABLE CREDENCIALES (
   codigo_cred VARCHAR(10) NOT NULL,
+  foto_cred BLOB NOT NULL,
   identificacion_cred INT NOT NULL,
   fecha_ingreso_cred DATE NOT NULL,
   pass_cred VARCHAR(150) NOT NULL,

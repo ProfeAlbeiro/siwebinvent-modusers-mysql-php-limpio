@@ -206,7 +206,7 @@ INSERT INTO VENDEDORES_PEDIDOS VALUES
 ('seller-1', 'pedido-4');
 
 INSERT INTO CLIENTES VALUES
-('seller-4', '2005-05-05'),
+('seller-4', '2005-05-05');
 
 -- ------------------------------------------------------------------------------------- --
 -- 1.2. Actualizar. -------------------------------------------------------------------- --
@@ -239,6 +239,17 @@ WHERE codigo_user = 'admin-3';
 -- ------------------------------------------------------------------------------------- --
 SELECT * FROM ROLES;
 SELECT * FROM USUARIOS;
+SELECT * FROM CREDENCIALES;
+SELECT * FROM MENSAJES;
+SELECT * FROM VENDEDORES;
+SELECT * FROM CLIENTES;
+SELECT * FROM CATEGORIAS;
+SELECT * FROM PRODUCTOS;
+SELECT * FROM PEDIDOS;
+SELECT * FROM LISTA_PRODUCTOS_PEDIDOS;
+SELECT * FROM VENDEDORES_PEDIDOS;
+SELECT * FROM COMPRAS;
+SELECT * FROM LISTA_PRODUCTOS_COMPRADOS;
 
 -- ------------------------------------------------------------------------------------- --
 -- 2.2. Específicas. ------------------------------------------------------------------- --

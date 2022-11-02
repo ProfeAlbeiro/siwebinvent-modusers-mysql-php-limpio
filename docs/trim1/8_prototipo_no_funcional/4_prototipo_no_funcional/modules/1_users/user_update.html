@@ -42,20 +42,24 @@
         <!-- Contenido -->
         <div class="contenido row bg-light p-2">
             <div class="col p-0 bg-light">
-                <form id="formUserCreate" name="formUserCreate"
+                <form id="formUserCreate" name="formUserUpdate"
                     class="card p-3 bg-dark text-white d-lg-flex justify-content-center w-100 border rounded p-2"
                     action="user_read.html" method="post">
                     <div class="form-row">
                         <div class="form-group col-md-6">
+                            <label for="perfil_usuario">Perfil</label>
+                            <select class="form-control class-perfil" id="perfil">
+                                <!-- <option></option> -->
+                                <option>usuario</option>
+                                <option>cliente</option>
+                                <option>empleado</option>
+                                <option>administrador</option>
+                            </select>
+                        </div>
+                        <div id="foto_group" class="form-group col-md-6 ocultar-control">
                             <label for="foto">Foto</label>
                             <input type="file" class="form-control p-1" id="foto" placeholder="Apellidos">
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="doc_identidad">Documento de Identidad</label>
-                            <input type="text" class="form-control" id="doc_identidad" placeholder="123456789">
-                        </div>
-                    </div>
-                    <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="nombres">Nombres</label>
                             <input type="text" class="form-control" id="nombres" placeholder="Nombres">
@@ -64,48 +68,42 @@
                             <label for="apellidos">Apellidos</label>
                             <input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
                         </div>
-                    </div>
-                    <div class="form-row">
                         <div class="form-group col-md-6">
+                            <label for="correo">Correo</label>
+                            <input type="email" class="form-control" id="correo" placeholder="usuario@correo.com">
+                        </div>
+                        <div id="doc_identidad_group" class="form-group col-md-6 ocultar-control">
+                            <label for="doc_identidad">Documento de Identidad</label>
+                            <input type="text" class="form-control" id="doc_identidad" placeholder="123456789">
+                        </div>
+                        <div id="contrasena_us_group" class="form-group col-md-6 ocultar-control">
+                            <label for="contrasena_us">Contraseña</label>
+                            <input type="password" class="form-control" id="contrasena_us" placeholder="Entre 5 y 8 caracteres">
+                        </div>
+                        <div id="confirmacion_group" class="form-group col-md-6 ocultar-control">
+                            <label for="confirmacion">Confirmación</label>
+                            <input type="password" class="form-control" id="confirmacion" placeholder="Confirmar contraseña">
+                        </div>
+                        <div id="fechaNac_group" class="form-group col-md-6 ocultar-control">
                             <label for="fechaNac">Fecha Nacimiento</label>
                             <input type="date" class="form-control" id="fechaNac" placeholder="Nombres">
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="correo">E-Mail</label>
-                            <input type="email" class="form-control" id="correo" placeholder="usuario@correo.com">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="contrasena_us">Contraseña</label>
-                            <input type="password" class="form-control" id="contrasena_us"
-                                placeholder="Entre 5 y 8 caracteres">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="confirmacion">Confirmación</label>
-                            <input type="password" class="form-control" id="confirmacion"
-                                placeholder="Confirmar contraseña">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="perfil_usuario">Perfil</label>
-                            <select class="form-control" id="perfil">
-                                <option>administrador</option>
-                                <option>empleado</option>
-                                <option>cliente</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
+                        <div id="estado_group" class="form-group col-md-6 ocultar-control">
                             <label for="estado">Estado</label>
                             <select class="form-control" id="estado">
                                 <option>activo</option>
                                 <option>inactivo</option>
                             </select>
                         </div>
+                        <div id="salario_group" class="form-group col-md-6 ocultar-control">
+                            <label for="salario">Salario</label>
+                            <input type="number" class="form-control text-right" id="salario" placeholder="salario"
+                                value="1300000">
+                        </div>
                     </div>
-                    <input type="submit" id="submit-user-update" class="btn btn-info mb-2" value="Actualizar">
-                    <button type="button" id="submit-user-update-cancel" class="btn btn-secondary" data-dismiss="modal" id="cerrar">Cerrar</button>
+                    <input type="submit" id="submit-user-create" class="btn btn-info mb-2" value="Actualizar">
+                    <button type="button" id="submit-user-create-cancel" class="btn btn-secondary" data-dismiss="modal"
+                        id="cerrar">Cerrar</button>
                 </form>
             </div>
         </div>
