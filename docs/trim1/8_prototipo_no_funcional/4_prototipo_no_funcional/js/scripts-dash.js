@@ -147,12 +147,14 @@ function validarUserCreate() {
     let userConfirmacion = document.getElementById('user_confirmacion').value;
     let userFechaNac = document.getElementById('user_fecha_nac').value;
     let userEstado = document.getElementById('user_estado').value;
+    let userSalario = document.getElementById('user_salario').value;
     let forms = document.getElementsByClassName('needs-validation');
     let validation = Array.prototype.filter.call(forms, function (form) {
         form.addEventListener('submit', function (event) { 
             event.preventDefault();
+            event.stopPropagation();
             // Foto: No vacío
-            if (form.checkValidity() === false && userFoto == "" && (userPerfil == "CLIENTE" || userPerfil == "EMPLEADO" || userPerfil == "ADMINISTRADOR")) {                
+            if (form.checkValidity() === false && userFoto == "" && (userPerfil == "CLIENTE" || userPerfil == "EMPLEADO" || userPerfil == "ADMINISTRADOR")) {
                 swal({
                     title: "Verifique el campo Foto",
                     text: "La Foto NO puede estar vacíos",
@@ -358,7 +360,7 @@ function validarUserCreate() {
                     });
             }
             // Fecha Nacimiento: No vacío
-            else if (form.checkValidity() === false && userFechaNac === "") {
+            else if (form.checkValidity() === false && userFechaNac === "" && (userPerfil == "CLIENTE")) {
                 swal({
                     title: "Verifique el campo Fecha de Nacimiento",
                     text: "La Fecha de Nacimiento NO puede estar vacía",
@@ -381,6 +383,18 @@ function validarUserCreate() {
                         document.getElementById('user_estado').focus();
                     });
             }
+            // Salario: No vacío
+            else if (form.checkValidity() === false && userSalario === "") {
+                swal({
+                    title: "Verifique el campo Salario",
+                    text: "El Salario NO puede estar vacío",
+                    icon: "error",
+                    button: "Aceptar",
+                })
+                    .then((value) => {
+                        document.getElementById('user_salario').focus();
+                    });
+            }            
             // Validación Completa: Usuario creado correctamente
             else {                
                 swal({
@@ -453,13 +467,13 @@ function perfilar() {
         document.getElementById("estado_group").classList.add('ocultar-control');
         document.getElementById("salario_group").classList.add('ocultar-control');        
     } else if (user.text === "cliente") {
+        $('#user_salario').removeAttr("required");
         $('#user_foto').prop("required", true);
         $('#user_doc_identidad').prop("required", true);
         $('#user_contrasena').prop("required", true);
         $('#user_confirmacion').prop("required", true);
         $('#user_fecha_nac').prop("required", true);
         $('#user_estado').prop("required", true);
-        $('#user_salario').removeAttr("required");
         document.getElementById("foto_group").classList.remove('ocultar-control');
         document.getElementById("doc_identidad_group").classList.remove('ocultar-control');
         document.getElementById("contrasena_us_group").classList.remove('ocultar-control');
@@ -468,13 +482,13 @@ function perfilar() {
         document.getElementById("estado_group").classList.remove('ocultar-control');
         document.getElementById("salario_group").classList.add('ocultar-control');        
     } else if (user.text === "empleado" || user.text === "administrador") {
+        $('#user_fecha_nac').removeAttr("required", true);
         $('#user_foto').prop("required", true);
         $('#user_doc_identidad').prop("required", true);
         $('#user_contrasena').prop("required", true);
         $('#user_confirmacion').prop("required", true);
         $('#user_estado').prop("required", true);
         $('#user_salario').prop("required", true);
-        $('#user_fecha_nac').removeAttr("required");
         document.getElementById("foto_group").classList.remove('ocultar-control');
         document.getElementById("doc_identidad_group").classList.remove('ocultar-control');
         document.getElementById("contrasena_us_group").classList.remove('ocultar-control');
