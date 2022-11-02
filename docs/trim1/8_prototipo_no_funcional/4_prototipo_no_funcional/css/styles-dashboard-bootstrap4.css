@@ -219,6 +219,7 @@ main iframe{
 	font-size: 1.5em;
 }
 .contenido{
+	height: 82vh;
 	min-height: 82vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
