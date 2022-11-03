@@ -322,13 +322,13 @@ footer p {
   .titulo-contenido {
     background: #2d394b;
     color: #fff;
-    height: 50px;
+    height: 55px;
   }
   .titulo-contenido h5 {
     font-size: 1.5em;
   }
   .contenido {
-    height: 75vh;
+    height: 82vh;
     overflow-y: scroll;
     overflow-x: hidden;
   }
