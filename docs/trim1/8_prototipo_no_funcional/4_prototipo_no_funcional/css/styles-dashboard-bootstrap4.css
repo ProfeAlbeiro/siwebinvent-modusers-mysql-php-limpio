@@ -317,18 +317,18 @@ footer p {
     margin-left: 5px;
   } 
   .migas {
-    min-height: 8vh;
+    height: 40px;
   }
   .titulo-contenido {
     background: #2d394b;
     color: #fff;
-    min-height: 10vh;
+    height: 50px;
   }
   .titulo-contenido h5 {
     font-size: 1.5em;
   }
   .contenido {
-    height: 70vh;
+    height: 75vh;
     overflow-y: scroll;
     overflow-x: hidden;
   }
