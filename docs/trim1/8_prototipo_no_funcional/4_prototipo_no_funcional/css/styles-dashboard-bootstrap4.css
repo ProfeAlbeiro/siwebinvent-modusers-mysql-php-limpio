@@ -323,10 +323,7 @@ footer p {
     background: #2d394b;
     color: #fff;
     height: 54px;
-  }
-  .titulo-contenido h5 {
-    font-size: 1.5em;
-  }
+  }  
   .contenido {
     height: 83vh;
     overflow-y: scroll;
