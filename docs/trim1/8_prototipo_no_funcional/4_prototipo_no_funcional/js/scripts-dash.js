@@ -123,7 +123,6 @@ function ocultaNav() {
         btnMenuLateral();
     } 
 }
-
 // Ocultar Panel Lateral
 function btnMenuLateral() {    
     document.getElementById("panel-lateral").classList.toggle('activar-panel');
@@ -133,7 +132,6 @@ function btnMenuLateral() {
     document.getElementById("modulos").classList.toggle('activar-panel');
     document.getElementById("area_principal").classList.toggle('ampliar-principal');    
 }
-
 function validarUserCreate() {    
     let patronCorreo = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;    
     let patronTexto = /^[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]+$/; 
@@ -424,7 +422,6 @@ function validarUserCreate() {
         }, false);
     });    
 }
-
 // Ocultar Panel Lateral: Celular
 function ocultaPanel() {
     var item2 = document.getElementById("navbarSupportedContent");
@@ -436,7 +433,6 @@ function ocultaPanel() {
         }
     }
 }
-
 // Mensaje de Eliminación del Usuario
 function deleteUser() {
     swal({
@@ -457,7 +453,6 @@ function deleteUser() {
             }
         });
 }
-
 // Crear Usuario: Controles según perfil
 function perfilar() {    
     let select = document.getElementById('user_perfil');
