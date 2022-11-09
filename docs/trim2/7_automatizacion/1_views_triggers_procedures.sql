@@ -19,6 +19,8 @@
 /* 3.1. Crear Procedure : ....... DELIMITER, CREATE PROCEDURE _ BEFORE/AFTER, BEGIN/END  */
 /* 3.2. Usar Procedure  : ....... CALL _                                                 */
 /* 3.3. Eliminar Procedure : .... DROP PROCEDURE _                                       */
+/* 4. TRIGGERS Y PROCEDURES                                                              */
+/* 4.1. Crear Usuario: .......... DELIMITER, CREATE PROCEDURE _ BEFORE/AFTER, BEGIN/END  */
 /* ------------------------------------------------------------------------------------- */
 /* BIBLIOGRAFÍA                                                                          */
 /* ------------------------------------------------------------------------------------- */
@@ -194,6 +196,36 @@ DROP VIEW VW_PRODUCTOS_BEBIDAS;
 -- 2.1. Trigger Insertar. -------------------------------------------------------------- --
 --      CREATE TRIGGER _ BEFORE/AFTER INSERT ON _ BEGIN/END : -------------------------- --
 -- ------------------------------------------------------------------------------------- --
+
+-- -------------------------------------------------------------------------------------
+## AFTER/INSERT Después de Insertar administrador - Insertar credenciales
+DELIMITER $$
+CREATE TRIGGER total_pedido_ai
+BEFORE UPDATE ON productos FOR EACH ROW
+BEGIN
+	IF (NEW.precio < 0) THEN
+		SET NEW.precio = OLD.precio;
+	ELSEIF (NEW.precio > 1000) THEN
+		SET NEW.precio = OLD.precio;
+	END IF;
+END;$$
+DELIMITER ;
+-- -------------------------------------------------------------------------------------
+## Actualizar el precio de un artículo (normal)
+-- -------------------------------------------------------------------------------------
+UPDATE productos SET precio = 15 WHERE codigo_articulo = 1;
+-- -------------------------------------------------------------------------------------
+## Actualizar el precio de un artículo (Si sobrepasa los 1000 -> Triger)
+-- -------------------------------------------------------------------------------------
+UPDATE productos SET precio = 8500 WHERE codigo_articulo = 1;
+-- -------------------------------------------------------------------------------------
+## Actualizar el precio de un artículo (Si es negativo -> Triger)
+-- -------------------------------------------------------------------------------------
+UPDATE productos SET precio = -85 WHERE codigo_articulo = 1;
+
+
+-- -------------------------------------------------------------------------------------
+## Lista Productos comprados
 DROP TRIGGER lista_compra_stock_bi
 
 DELIMITER $$
@@ -271,6 +303,33 @@ DELIMITER ;
 
 INSERT INTO PRODUCTOS VALUES 
 (1, 'prod-13', 'Yuca', 1200.55, 1.00, 'libra', 5);
+
+-- -------------------------------------------------------------------------------------
+## Crear el trigger con condicional
+
+DELIMITER $$
+CREATE TRIGGER revisa_precio_bu 
+BEFORE UPDATE ON productos FOR EACH ROW
+BEGIN
+	IF (NEW.precio < 0) THEN
+		SET NEW.precio = OLD.precio;
+	ELSEIF (NEW.precio > 1000) THEN
+		SET NEW.precio = OLD.precio;
+	END IF;
+END;$$
+DELIMITER ;
+-- -------------------------------------------------------------------------------------
+## Actualizar el precio de un artículo (normal)
+-- -------------------------------------------------------------------------------------
+UPDATE productos SET precio = 15 WHERE codigo_articulo = 1;
+-- -------------------------------------------------------------------------------------
+## Actualizar el precio de un artículo (Si sobrepasa los 1000 -> Triger)
+-- -------------------------------------------------------------------------------------
+UPDATE productos SET precio = 8500 WHERE codigo_articulo = 1;
+-- -------------------------------------------------------------------------------------
+## Actualizar el precio de un artículo (Si es negativo -> Triger)
+-- -------------------------------------------------------------------------------------
+UPDATE productos SET precio = -85 WHERE codigo_articulo = 1;
 
 -- -------------------------------------------------------------------------------------
 -- ACTUALIZAR REGISTRO DE PRODUCTOS Y UTILIZAR TRIGGER PARA ALMACENAR EN TABLA PROD_ACT  
@@ -406,6 +465,7 @@ UPDATE productos SET precio = 8500 WHERE codigo_articulo = 1;
 UPDATE productos SET precio = -85 WHERE codigo_articulo = 1;
 -- -------------------------------------------------------------------------------------
 
+
 /* ************************************************************************************* */
 /* ----------------------------------- 3. PROCEDURES ----------------------------------- */
 /* ------------------------------ PROCEDIMIENTOS ALMACENADOS --------------------------- */
@@ -415,6 +475,26 @@ UPDATE productos SET precio = -85 WHERE codigo_articulo = 1;
 -- 3.1. Crear un Procedure. ------------------------------------------------------------ --
 --      DELIMITER, CREATE PROCEDURE _ BEFORE/AFTER, BEGIN/END : ------------------------ --
 -- ------------------------------------------------------------------------------------- --
+
+-- ------------------------------------------------------------------------------------- --
+## Crear Aministrador
+DELIMITER $$
+CREATE PROCEDURE pa_registrar_usuario(
+	IN p_codigo_rol INT(11),
+	IN p_codigo_user VARCHAR(10),
+	IN p_nombres_user VARCHAR(50),
+	IN p_apellidos_user VARCHAR(50),
+	IN p_correo_user VARCHAR(50),
+    IN p_apellidos_user VARCHAR(50)
+)
+BEGIN
+	INSERT INTO USUARIOS VALUES	
+	(p_codigo_rol, p_codigo_user, p_nombres_user, p_apellidos_user, p_correo_user);
+END;$$
+DELIMITER ;
+
+-- ------------------------------------------------------------------------------------- --
+## Pedidos Entregados
 DELIMITER $$
 CREATE PROCEDURE pa_pedidos_entregados()
 BEGIN
@@ -431,21 +511,6 @@ CREATE PROCEDURE pa_pedidos_entregados_param(
 BEGIN
 	SELECT * FROM PEDIDOS	
 	WHERE estado_pedido = p_estado_pedido;
-END;$$
-DELIMITER ;
-
--- ------------------------------------------------------------------------------------- --
-DELIMITER $$
-CREATE PROCEDURE pa_registrar_usuario(
-	IN p_codigo_rol INT(11),
-	IN p_codigo_user VARCHAR(10),
-	IN p_nombres_user VARCHAR(50),
-	IN p_apellidos_user VARCHAR(50),
-	IN p_correo_user VARCHAR(50)
-)
-BEGIN
-	INSERT INTO USUARIOS VALUES	
-	(p_codigo_rol, p_codigo_user, p_nombres_user, p_apellidos_user, p_correo_user);
 END;$$
 DELIMITER ;
 
@@ -531,49 +596,31 @@ BEGIN
 	SELECT edad;
 END;$$
 DELIMITER ;
--- -------------------------------------------------------------------------------------
-## Llamar el Procedimiento Almacenado muestra_clientes()
--- -------------------------------------------------------------------------------------
-CALL calcula_edad(1983);
--- -------------------------------------------------------------------------------------
--- Convertir en un procedimiento almacenado
--- PROCEDIMIENTO ALMACENADO IMPIDA ACTUALIZACIÓN DE UN PRECIO SINO CUMPLE UNA CONDICIÓN
--- -------------------------------------------------------------------------------------
-## Crear el trigger con condicional
--- -------------------------------------------------------------------------------------
-DELIMITER $$
-CREATE TRIGGER revisa_precio_bu 
-BEFORE UPDATE ON productos FOR EACH ROW
-BEGIN
-	IF (NEW.precio < 0) THEN
-		SET NEW.precio = OLD.precio;
-	ELSEIF (NEW.precio > 1000) THEN
-		SET NEW.precio = OLD.precio;
-	END IF;
-END;$$
-DELIMITER ;
--- -------------------------------------------------------------------------------------
-## Actualizar el precio de un artículo (normal)
--- -------------------------------------------------------------------------------------
-UPDATE productos SET precio = 15 WHERE codigo_articulo = 1;
--- -------------------------------------------------------------------------------------
-## Actualizar el precio de un artículo (Si sobrepasa los 1000 -> Triger)
--- -------------------------------------------------------------------------------------
-UPDATE productos SET precio = 8500 WHERE codigo_articulo = 1;
--- -------------------------------------------------------------------------------------
-## Actualizar el precio de un artículo (Si es negativo -> Triger)
--- -------------------------------------------------------------------------------------
-UPDATE productos SET precio = -85 WHERE codigo_articulo = 1;
+
+
 -- -------------------------------------------------------------------------------------
 
 -- ------------------------------------------------------------------------------------- --
 -- 3.2. Usar un Procedure. ------------------------------------------------------------- --
 --      CALL _ : ----------------------------------------------------------------------- --
 -- ------------------------------------------------------------------------------------- --
-CALL pa_pedidos_entregados();
-CALL pa_pedidos_entregados_param('enviado');
+
+-- ------------------------------------------------------------------------------------- --
+## Registrar Usuario
 CALL pa_registrar_usuario
-(2, 'person-3', 'Procedimiento', 'Almacenado', 'person3@gmail.com');
+(1, 'admin-1', 'Albeiro', 'Ramos', 'profealbeiro2020@gmail.com');
+
+-- ------------------------------------------------------------------------------------- --
+## XXXXXXX
+CALL pa_pedidos_entregados();
+
+-- ------------------------------------------------------------------------------------- --
+## XXXXXXX
+CALL pa_pedidos_entregados_param('enviado');
+
+-- ------------------------------------------------------------------------------------- --
+## Calcular Edad
+CALL calcula_edad(1983);
 
 -- ------------------------------------------------------------------------------------- --
 -- 4.3. Eliminar un Procedure. --------------------------------------------------------- --
@@ -583,6 +630,57 @@ DROP PROCEDURE pa_pedidos_entregados;
 DROP PROCEDURE pa_pedidos_entregados_param;
 DROP PROCEDURE pa_registrar_usuario;
 
+
+/* ************************************************************************************* */
+/* ----------------------------------- 4. TRIGGERS Y ----------------------------------- */
+/* ------------------------------------- PROCEDURES ------------------------------------ */
+/* ************************************************************************************* */
+
+-- ------------------------------------------------------------------------------------- --
+## Crear Aministrador
+DROP PROCEDURE pa_registrar_usuario;
+
+DELIMITER $$
+CREATE PROCEDURE pa_registrar_usuario(
+	IN p_codigo_rol INT(11),
+	IN p_codigo_user VARCHAR(10),
+	IN p_nombres_user VARCHAR(50),
+	IN p_apellidos_user VARCHAR(50),
+	IN p_correo_user VARCHAR(50)    
+)
+BEGIN
+	INSERT INTO USUARIOS VALUES	
+	(p_codigo_rol, p_codigo_user, p_nombres_user, p_apellidos_user, p_correo_user);
+END;$$
+DELIMITER ;
+
+-- ------------------------------------------------------------------------------------- --
+## Registrar Administrador
+DELIMITER $$
+CREATE PROCEDURE pa_registrar_admin(
+	IN p_codigo_rol INT(11),
+	IN p_codigo_user VARCHAR(10),
+	IN p_nombres_user VARCHAR(50),
+	IN p_apellidos_user VARCHAR(50),
+	IN p_correo_user VARCHAR(50),
+    IN p_foto_cred BLOB,
+    IN p_identificacion_cred INT(11),
+    IN p_fecha_ingreso_cred DATE,
+    IN p_pass_cred VARCHAR(150),
+    IN p_estado_cred TINYINT,
+    IN p_salario_seller DECIMAL(8,2)    
+)
+BEGIN
+	INSERT INTO USUARIOS VALUES	
+	(p_codigo_rol, p_codigo_user, p_nombres_user, p_apellidos_user, p_correo_user);
+    INSERT INTO CREDENCIALES VALUES	
+	(p_codigo_user, p_foto_cred, p_identificacion_cred, p_fecha_ingreso_cred, p_pass_cred, p_estado_cred);
+END;$$
+DELIMITER ;
+
+-- ------------------------------------------------------------------------------------- --
+CALL pa_registrar_admin
+(1, 'admin-1', 'Albeiro', 'Ramos', 'profealbeiro2020@gmail.com', '../../img/usuario.png', 123456, "2022-06-11", sha1('12345'), 1, 1300000);
 
 /* ************************************************************************************* */
 /* ------------------------------------------------------------------------------------- */

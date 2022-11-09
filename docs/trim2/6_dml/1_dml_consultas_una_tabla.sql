@@ -72,21 +72,28 @@
 -- ------------------------------------------------------------------------------------- --
 INSERT INTO ROLES VALUES 
 (null, 'admin'),
-(null, 'user'),
+(null, 'person'),
 (null, 'customer'),
 (null, 'seller');
 
 INSERT INTO USUARIOS VALUES 
-(1, 'admin-1', 'Albeiro', 'Ramos', 'profealbeiro2020@gmail.com'),
+(1, 'admin-1', 'Albeiro', 'Ramos', 'profealbeiro2020@gmail.com');
+
+INSERT INTO CREDENCIALES VALUES
+('admin-1', '../../img/usuario.png', 123456, "2022-06-11", sha1('12345'), 1);
+
+INSERT INTO USUARIOS VALUES 
+(1, 'admin-2', 'Pepito', 'Perez', 'pepito@gmail.com'),
 (3, 'customer-1', 'Marinita', 'García', 'marinita@gmail.com'),
-(4, 'seller-1', 'Jesús', 'Briceño', 'jesus@gmail.com'),
-(2, 'person-1', 'Ezequiel', 'Pantoja', 'ezequiel@gmail.com'),
-(2, 'person-2', 'Camilo', 'Céspedes', 'camilo@gmail.com'),
 (3, 'customer-2', 'Jorge', 'Campos', 'jorge@gmail.com'),
 (3, 'customer-3', 'Ricardo', 'Quevedo', 'ricardo@gmail.com'),
 (3, 'customer-4', 'José Miguel', 'Ríos', 'jose@gmail.com'),
-(1, 'admin-2', 'Pepito', 'Perez', 'pepito@gmail.com'),
+(4, 'seller-1', 'Jesús', 'Briceño', 'jesus@gmail.com'),
 (4, 'seller-2', 'Alfonso', 'Camacho', 'alfonso@gmail.com');
+
+INSERT INTO USUARIOS VALUES 
+(2, 'person-1', 'Ezequiel', 'Pantoja', 'ezequiel@gmail.com'),
+(2, 'person-2', 'Camilo', 'Céspedes', 'camilo@gmail.com');
 
 INSERT INTO CREDENCIALES VALUES
 ('admin-1', '../../img/usuario.png', 123456, "2022-06-11", sha1('12345'), 1),

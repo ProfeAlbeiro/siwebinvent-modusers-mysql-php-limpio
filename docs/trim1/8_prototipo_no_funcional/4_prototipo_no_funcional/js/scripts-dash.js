@@ -488,7 +488,7 @@ function perfilar() {
         document.getElementById("fechaNac_group").classList.remove('ocultar-control');
         document.getElementById("estado_group").classList.remove('ocultar-control');
         document.getElementById("salario_group").classList.add('ocultar-control');        
-    } else if (user.text === "empleado" || user.text === "administrador") {
+    } else if (user.text === "empleado") {
         $('#user_fecha_nac').removeAttr("required", true);
         $('#user_foto').prop("required", true);
         $('#user_doc_identidad').prop("required", true);
@@ -503,5 +503,20 @@ function perfilar() {
         document.getElementById("fechaNac_group").classList.add('ocultar-control');
         document.getElementById("estado_group").classList.remove('ocultar-control');
         document.getElementById("salario_group").classList.remove('ocultar-control');
-    }    
+    } else if (user.text === "administrador") {
+        $('#user_fecha_nac').removeAttr("required", true);
+        $('#user_foto').prop("required", true);
+        $('#user_doc_identidad').prop("required", true);
+        $('#user_contrasena').prop("required", true);
+        $('#user_confirmacion').prop("required", true);
+        $('#user_estado').prop("required", true);
+        $('#user_salario').removeAttr("required", true);
+        document.getElementById("foto_group").classList.remove('ocultar-control');
+        document.getElementById("doc_identidad_group").classList.remove('ocultar-control');
+        document.getElementById("contrasena_us_group").classList.remove('ocultar-control');
+        document.getElementById("confirmacion_group").classList.remove('ocultar-control');
+        document.getElementById("fechaNac_group").classList.add('ocultar-control');
+        document.getElementById("estado_group").classList.remove('ocultar-control');
+        document.getElementById("salario_group").classList.add('ocultar-control');
+    }
 }
