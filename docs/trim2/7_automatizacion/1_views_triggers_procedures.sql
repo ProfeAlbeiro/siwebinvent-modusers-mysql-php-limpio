@@ -667,8 +667,7 @@ CREATE PROCEDURE pa_registrar_admin(
     IN p_identificacion_cred INT(11),
     IN p_fecha_ingreso_cred DATE,
     IN p_pass_cred VARCHAR(150),
-    IN p_estado_cred TINYINT,
-    IN p_salario_seller DECIMAL(8,2)    
+    IN p_estado_cred TINYINT
 )
 BEGIN
 	INSERT INTO USUARIOS VALUES	
@@ -680,7 +679,7 @@ DELIMITER ;
 
 -- ------------------------------------------------------------------------------------- --
 CALL pa_registrar_admin
-(1, 'admin-1', 'Albeiro', 'Ramos', 'profealbeiro2020@gmail.com', '../../img/usuario.png', 123456, "2022-06-11", sha1('12345'), 1, 1300000);
+(1, 'admin-1', 'Albeiro', 'Ramos', 'profealbeiro2020@gmail.com', '../../img/usuario.png', 123456, "2022-06-11", sha1('12345'), 1);
 
 /* ************************************************************************************* */
 /* ------------------------------------------------------------------------------------- */
