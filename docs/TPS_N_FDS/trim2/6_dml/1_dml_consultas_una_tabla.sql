@@ -72,7 +72,7 @@
 -- ------------------------------------------------------------------------------------- --
 INSERT INTO ROLES VALUES 
 (null, 'admin'),
-(null, 'person'),
+(null, 'user'),
 (null, 'customer'),
 (null, 'seller');
 
