@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Empresa</title>
+	<link rel="shortcut icon" href="../assets/img/imagen-card.jpg">
+	<link rel="stylesheet" href="../assets/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="../assets/css/buttons.dataTables.min.css">
+	<link rel="stylesheet" href="../assets/css/select.dataTables.min.css">
+	<link rel="stylesheet" href="../assets/css/rowReorder.dataTables.min.css">
+	<link rel="stylesheet" href="../assets/css/responsive.dataTables.min.css">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<link rel="stylesheet" href="../assets/css/all.min.css">
+	<link rel="stylesheet" href="../assets/css/styles-landing-model-flexbox.css">
+</head>
+
+<body>
+	<!-- Contenedor -->
+	<div class="contenedor" id="contenedor">
+		<!-- Navegador -->
+		<nav>
+			<div class="logo">
+				<img src="../assets/img/logo-empresa.png" alt="">
+			</div>
+			<div class="menu">
+				<div class="m-home"><a href="../index.html#">Inicio</a></div>
+				<div class="m-portafolio"><a href="../index.html#portafolio">Portafolio</a></div>
+				<div class="m-nosotros"><a href="../index.html#nosotros">Nosotros</a></div>
+				<div class="m-contactenos"><a href="../index.html#contactenos">Contáctenos</a></div>
+			</div>
+			<div class="ingreso">
+				<div class="m-ingreso"><a href="pages/login.html">Iniciar Sesión</a></div>
+			</div>
+		</nav>
+		<!-- Título -->
+		<div class="tope"></div>
+		<div class="titulo">
+			<h1>Olvido de Contraseña</h1>
+		</div>
+		<!-- Migas de Pan -->
+		<div class="migas color-gris-oscuro">
+			<a href="login.html">Inicio</a>
+			<p> &nbsp / &nbsp</p>
+			<a href="forgot.html">Olvido de Contraseña</a>
+		</div>
+		<!-- Contenido -->
+		<section class="paginas forms color-gris-claro">
+			<form class="form form-forgot" action="login.html" method="post" name="formForgot">
+				<h2 class="form-subtitulo">Olvido de Contraseña</h2>
+				<div class="form-cuerpo color-blanco">
+					<div class="form-control">
+						<label class="label" for="correo-olv">Correo</label>
+						<input class="input" type="email" id="correo-olv" placeholder="Correo Usuario"
+							placeholder="Correo Usuario"
+							pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"
+							title="Ingrese un correo válido" required>
+					</div>
+				</div>
+				<div class="form-pie">
+					<input type="reset" id="cancelar-olvido" value="Cancelar">
+					<input type="submit" id="submit-olvido" value="Enviar">
+				</div>
+			</form>
+		</section>
+		<!-- Pie de página -->
+		<footer>
+			<div class="parrafo">
+				<p>Todos los Derechos Reservados a:</p>
+				<p>Instructor E. Albeiro Ramos V. © 2022</p>
+				<p>earamos42@misena.edu.co / profealbeiro2020@gmail.com</p>
+			</div>
+		</footer>
+	</div>
+	<script src="../assets/js/sweetalert.min.js"></script>
+	<script src="../assets/js/jquery-3.5.1.js"></script>
+	<script src="../assets/js/jquery.dataTables.min.js"></script>
+	<script src="../assets/js/dataTables.buttons.min.js"></script>
+	<script src="../assets/js/jszip.min.js"></script>
+	<script src="../assets/js/pdfmake.min.js"></script>
+	<script src="../assets/js/vfs_fonts.js"></script>
+	<script src="../assets/js/buttons.html5.min.js"></script>
+	<script src="../assets/js/buttons.print.min.js"></script>
+	<script src="../assets/js/dataTables.select.min.js"></script>
+	<script src="../assets/js/dataTables.rowReorder.min.js"></script>
+	<script src="../assets/js/dataTables.responsive.min.js"></script>
+	<script src="../assets/js/canvasjs.min.js"></script>
+	<script src="../assets/js/jspdf.min.js"></script>
+	<script src="../assets/js/main.js"></script>
+	<script src="../assets/js/scripts.js"></script>
+</body>
+
+</html>
