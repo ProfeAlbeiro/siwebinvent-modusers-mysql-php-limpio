@@ -129,6 +129,24 @@ ON credenciales.codigo_cred = pedidos.codigo_customer;
 -- 2.2.1.1. Con repeticiones. ---------------------------------------------------------- --
 --          SELECT __ FROM __ INNER JOIN __ ON __.__ = __.__ : ------------------------- --
 -- ------------------------------------------------------------------------------------- --
+## Consultar los Usuarios
+SELECT R.codigo_rol, nombre_rol, codigo_user, nombres_user, apellidos_user, correo_user
+FROM ROLES AS R
+INNER JOIN USUARIOS AS U
+ON R.codigo_rol = U.codigo_rol;
+
+-- ------------------------------------------------------------------------------------- --
+## Consultar todos los Stakeholders
+SELECT codigo_pedido, codigo_user, nombres_user, apellidos_user, correo_user,
+identificacion_cred, fecha_pedido, ciudad_pedido, total_pr_pedido, estado_pedido
+FROM USUARIOS 
+INNER JOIN CREDENCIALES
+ON usuarios.codigo_user = credenciales.codigo_cred
+INNER JOIN PEDIDOS
+ON credenciales.codigo_cred = pedidos.codigo_customer;
+
+-- ------------------------------------------------------------------------------------- --
+## Consultar
 SELECT codigo_pedido, codigo_user, nombres_user, apellidos_user, correo_user,
 identificacion_cred, fecha_pedido, ciudad_pedido, total_pr_pedido, estado_pedido
 FROM USUARIOS 

@@ -40,6 +40,14 @@
 -- 1.1. Crear Vista. ------------------------------------------------------------------- --
 --      CREATE VIEW _ AS SELECT _ FROM _ WHERE _ : ------------------------------------- --
 -- ------------------------------------------------------------------------------------- --
+## Consultar los Usuarios
+CREATE VIEW VW_USUARIOS AS
+SELECT R.codigo_rol, nombre_rol, codigo_user, nombres_user, apellidos_user, correo_user
+FROM ROLES AS R
+INNER JOIN USUARIOS AS U
+ON R.codigo_rol = U.codigo_rol;
+
+-- ------------------------------------------------------------------------------------- --
 CREATE VIEW VW_INVENTARIO_STOCK AS
 SELECT 
 nombre_categoria AS categoria,
@@ -152,6 +160,7 @@ WHERE nombre_producto = 'Tomate';
 -- 1.2. Usar Vista. -------------------------------------------------------------------- --
 --      SELECT _ FROM _ : -------------------------------------------------------------- --
 -- ------------------------------------------------------------------------------------- --
+SELECT * FROM VW_USUARIOS;
 SELECT * FROM VW_INVENTARIO_STOCK;
 SELECT * FROM VW_INVENTARIO_VENTAS;
 SELECT * FROM VW_INVENTARIO_COMPRAS;
@@ -177,6 +186,7 @@ WHERE categorias.codigo_categoria = 2;
 -- 1.4. Eliminar Vista. ---------------------------------------------------------------- --
 --      DROP VIEW : -------------------------------------------------------------------- --
 -- ------------------------------------------------------------------------------------- --
+DROP VIEW VW_USUARIOS;
 DROP VIEW VW_INVENTARIO_STOCK;
 DROP VIEW VW_INVENTARIO_VENTAS;
 DROP VIEW VW_INVENTARIO_COMPRAS;
@@ -477,15 +487,14 @@ UPDATE productos SET precio = -85 WHERE codigo_articulo = 1;
 -- ------------------------------------------------------------------------------------- --
 
 -- ------------------------------------------------------------------------------------- --
-## Crear Aministrador
+## Crear Usuario
 DELIMITER $$
 CREATE PROCEDURE pa_registrar_usuario(
 	IN p_codigo_rol INT(11),
 	IN p_codigo_user VARCHAR(10),
 	IN p_nombres_user VARCHAR(50),
 	IN p_apellidos_user VARCHAR(50),
-	IN p_correo_user VARCHAR(50),
-    IN p_apellidos_user VARCHAR(50)
+	IN p_correo_user VARCHAR(50)
 )
 BEGIN
 	INSERT INTO USUARIOS VALUES	
@@ -608,8 +617,9 @@ DELIMITER ;
 -- ------------------------------------------------------------------------------------- --
 ## Registrar Usuario
 CALL pa_registrar_usuario
-(1, 'admin-1', 'Albeiro', 'Ramos', 'profealbeiro2020@gmail.com');
-
+(2, 'person-1', 'Ezequiel', 'Pantoja', 'ezequiel@gmail.com');
+CALL pa_registrar_usuario
+(2, 'person-2', 'Camilo', 'Céspedes', 'camilo@gmail.com');
 -- ------------------------------------------------------------------------------------- --
 ## XXXXXXX
 CALL pa_pedidos_entregados();
@@ -637,24 +647,7 @@ DROP PROCEDURE pa_registrar_usuario;
 /* ************************************************************************************* */
 
 -- ------------------------------------------------------------------------------------- --
-## Crear Aministrador
-DROP PROCEDURE pa_registrar_usuario;
 
-DELIMITER $$
-CREATE PROCEDURE pa_registrar_usuario(
-	IN p_codigo_rol INT(11),
-	IN p_codigo_user VARCHAR(10),
-	IN p_nombres_user VARCHAR(50),
-	IN p_apellidos_user VARCHAR(50),
-	IN p_correo_user VARCHAR(50)    
-)
-BEGIN
-	INSERT INTO USUARIOS VALUES	
-	(p_codigo_rol, p_codigo_user, p_nombres_user, p_apellidos_user, p_correo_user);
-END;$$
-DELIMITER ;
-
--- ------------------------------------------------------------------------------------- --
 ## Registrar Administrador
 DELIMITER $$
 CREATE PROCEDURE pa_registrar_admin(
